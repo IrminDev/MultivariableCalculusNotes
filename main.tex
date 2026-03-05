@@ -1,0 +1,238 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel} % es-tabla para que diga "Tabla" en vez de "Cuadro"
+\usepackage{amsmath, amsfonts, amssymb, amsthm} 
+\usepackage{mathtools}
+\usepackage{physics} 
+\usepackage{tikz} 
+\usepackage{tikz-3dplot} % Agregado para mejores gráficos 3D si es necesario, o usando tikz estándar
+\usepackage{pgfplots} 
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{tcolorbox} 
+\tcbuselibrary{skins, breakable}
+\usepackage{fancyhdr} 
+\usepackage{hyperref}
+
+% --- Definición de Cajas ---
+\newtcolorbox{mydefinition}[1]{
+  colback=blue!5!white, colframe=blue!75!black, fonttitle=\bfseries,
+  title=Definición: #1,
+  breakable
+}
+
+\newtcolorbox{mytheorem}[1]{
+  colback=red!5!white, colframe=red!75!black, fonttitle=\bfseries,
+  title=Teorema: #1,
+  breakable
+}
+
+\newtcolorbox{mynote}[1]{
+  colback=yellow!10!white, colframe=orange!80!black, fonttitle=\bfseries,
+  title=Nota: #1,
+  breakable
+}
+
+% --- Datos del Documento ---
+\pagestyle{fancy}
+\fancyhead[L]{Apuntes de Cálculo Multivariable}
+\fancyhead[R]{\thepage}
+
+\begin{document}
+
+\title{Introducción al Cálculo Multivariable: Sistemas Coordenados}
+\author{Levario Medina Sergio \\ Hernández Jiménez Irmin}
+\date{\today}
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Sistemas coordenados}
+
+El estudio del cálculo multivariable requiere una comprensión sólida de los espacios geométricos donde se desarrollan las funciones de varias variables. A continuación, formalizamos los conceptos del plano y el espacio euclidiano.
+
+\subsection{El Plano Cartesiano ($\mathbb{R}^2$)}
+
+El sistema de coordenadas rectangulares en el plano se construye mediante dos rectas reales perpendiculares que se intersectan en un punto llamado \textbf{origen}.
+
+\begin{mydefinition}{El Plano $\mathbb{R}^2$}
+El conjunto $\mathbb{R}^2$ es el conjunto de todos los pares ordenados de números reales. Matemáticamente se define como el producto cartesiano $\mathbb{R} \times \mathbb{R}$:
+$$ \mathbb{R}^2 = \{ (x, y) \mid x \in \mathbb{R}, y \in \mathbb{R} \} $$
+A cada par ordenado $(x, y)$ se le denomina \textbf{punto} en el plano.
+\end{mydefinition}
+
+Los elementos del par ordenado reciben nombres específicos:
+\begin{itemize}
+    \item $x$: Coordenada $x$ o \textbf{abscisa}. Representa la distancia dirigida desde el eje vertical.
+    \item $y$: Coordenada $y$ u \textbf{ordenada}. Representa la distancia dirigida desde el eje horizontal.
+\end{itemize}
+
+Los ejes coordenados dividen al plano en cuatro regiones denominadas \textbf{cuadrantes}, numerados en sentido antihorario comenzando por el superior derecho (donde ambas coordenadas son positivas).
+
+\begin{center}
+\shorthandoff{>} % Necesario con babel-spanish para evitar conflictos en tikz
+\begin{tikzpicture}[scale=1.2]
+    % Ejes
+    \draw[->, thick] (-3,0) -- (3,0) node[right] {$x$ (Eje de abscisas)};
+    \draw[->, thick] (0,-3) -- (0,3) node[above] {$y$ (Eje de ordenadas)};
+    
+    % Punto P
+    \coordinate (P) at (2, 1.5);
+    \draw[dashed, color=gray] (2,0) node[below, black] {$a$} -- (P);
+    \draw[dashed, color=gray] (0,1.5) node[left, black] {$b$} -- (P);
+    \filldraw[blue] (P) circle (2pt) node[anchor=south west] {$P(a,b)$};
+    
+    % Etiquetas de cuadrantes
+    \node[gray] at (2,2) {I $(+,+)$};
+    \node[gray] at (-2,2) {II $(-,+)$};
+    \node[gray] at (-2,-2) {III $(-,-)$};
+    \node[gray] at (2,-2) {IV $(+,-)$};
+    
+    % Origen
+    \node[below left] at (0,0) {$O(0,0)$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{El Espacio Euclidiano ($\mathbb{R}^3$)}
+
+Para representar puntos en el espacio tridimensional, extendemos el concepto anterior añadiendo un tercer eje perpendicular a los otros dos.
+
+\begin{mydefinition}{El Espacio $\mathbb{R}^3$}
+El conjunto $\mathbb{R}^3$ es el conjunto de todas las ternas ordenadas de números reales:
+$$ \mathbb{R}^3 = \{ (x, y, z) \mid x, y, z \in \mathbb{R} \} $$
+\end{mydefinition}
+
+\subsubsection{Orientación y la Regla de la Mano Derecha}
+En ingeniería y física, es estándar utilizar un sistema de coordenadas \textit{dextrógiro} (mano derecha). 
+\begin{mynote}{Regla de la Mano Derecha}
+Si alineas los dedos de tu mano derecha en la dirección del eje $x$ positivo y los cierras hacia el eje $y$ positivo, tu pulgar apuntará en la dirección del eje $z$ positivo.
+\end{mynote}
+
+En este sistema:
+\begin{itemize}
+    \item El eje $z$ suele representar la altura o la cota vertical.
+    \item Los tres ejes definen tres \textbf{planos coordenados}:
+    \begin{itemize}
+        \item \textbf{Plano $xy$}: Formado por los ejes $x$ e $y$ (donde $z=0$).
+        \item \textbf{Plano $xz$}: Formado por los ejes $x$ y $z$ (donde $y=0$).
+        \item \textbf{Plano $yz$}: Formado por los ejes $y$ y $z$ (donde $x=0$).
+    \end{itemize}
+\end{itemize}
+
+Estos planos dividen el espacio en ocho regiones llamadas \textbf{octantes}. El primer octante es aquel donde $x, y, z > 0$.
+
+\subsubsection{Localización de un punto en el espacio}
+
+Para localizar un punto $P(a, b, c)$ en el espacio:
+1. Avanzamos $a$ unidades sobre el eje $x$.
+2. Nos movemos $b$ unidades paralelamente al eje $y$.
+3. Subimos (o bajamos) $c$ unidades paralelamente al eje $z$.
+
+\begin{center}
+\shorthandoff{>}
+\begin{tikzpicture}[x={(-0.5cm,-0.5cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, scale=1.5]
+    % Ejes (parte negativa punteada)
+    \draw[dashed, gray] (0,0,0) -- (-3,0,0); % x back
+    \draw[dashed, gray] (0,0,0) -- (0,-2,0); % y back
+    \draw[dashed, gray] (0,0,0) -- (0,0,-1); % z back
+    
+    % Ejes positivos
+    \draw[->, thick] (0,0,0) -- (3,0,0) node[below left] {$x$};
+    \draw[->, thick] (0,0,0) -- (0,4,0) node[right] {$y$};
+    \draw[->, thick] (0,0,0) -- (0,0,3) node[above] {$z$};
+    
+    % Coordenadas del punto
+    \def\x{2}
+    \def\y{3}
+    \def\z{2}
+    
+    % Construcción de la caja
+    \draw[dashed, blue] (0,0,0) -- (\x,0,0) node[left, black] {$a$};
+    \draw[dashed, blue] (\x,0,0) -- (\x,\y,0);
+    \draw[dashed, blue] (0,\y,0) -- (\x,\y,0);
+    \draw[dashed, blue] (0,0,0) -- (0,\y,0) node[below, black] {$b$};
+    
+    \draw[dashed, blue] (\x,\y,0) -- (\x,\y,\z); % Línea vertical al punto
+    
+    \draw[dashed, blue] (0,0,\z) -- (\x,0,\z);
+    \draw[dashed, blue] (0,0,\z) -- (0,\y,\z);
+    \draw[dashed, blue] (\x,0,\z) -- (\x,\y,\z);
+    \draw[dashed, blue] (0,\y,\z) -- (\x,\y,\z);
+    \draw[dashed, blue] (0,0,0) -- (0,0,\z) node[left, black] {$c$};
+    \draw[dashed, blue] (\x,0,0) -- (\x,0,\z);
+    \draw[dashed, blue] (0,\y,0) -- (0,\y,\z);
+
+    % Punto y planos etiqueta
+    \filldraw[red] (\x,\y,\z) circle (2pt) node[anchor=south west] {$P(a,b,c)$};
+    
+    % Etiqueta plano XY
+    \node at (-1, 1, 0) [opacity=0.5, font=\footnotesize] {Plano $xy$ ($z=0$)};
+    
+\end{tikzpicture}
+\end{center}
+
+\begin{mydefinition}{Distancia en $\mathbb{R}^3$}
+La distancia entre dos puntos $P_1(x_1, y_1, z_1)$ y $P_2(x_2, y_2, z_2)$ en el espacio está dada por la generalización del Teorema de Pitágoras:
+$$ |P_1 P_2| = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} $$
+\end{mydefinition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Para definir un vector en $\mathbb{R}^3$:
+\begin{equation}
+    \vec{v} = \langle x, y, z \rangle = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}
+\end{equation}
+
+\begin{mydefinition}{Producto Punto}
+    El producto escalar de dos vectores $\vec{u}$ y $\vec{v}$ se define como:
+    \[ \vec{u} \cdot \vec{v} = |\vec{u}| |\vec{v}| \cos(\theta) \]
+\end{mydefinition}
+
+\section{Derivadas Parciales}
+
+El gradiente es fundamental en este curso. Utilizando el paquete \texttt{physics}, podemos escribirlo fácilmente:
+\[ \grad f = \left( \pdv{f}{x}, \pdv{f}{y}, \pdv{f}{z} \right) \]
+
+\section{Visualización de Superficies}
+
+
+
+A continuación, un ejemplo de cómo graficar una superficie básica (paraboloide) directamente en tu documento:
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{30},
+    axis lines=center,
+    xlabel=$x$, ylabel=$y$, zlabel=$z$,
+    colormap/viridis
+]
+\addplot3[
+    surf,
+    domain=-2:2,
+    domain y=-2:2,
+    samples=30
+] {x^2 + y^2};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{mytheorem}{Regla de la Cadena}
+    Si $z = f(x, y)$ es diferenciable y $x=g(t), y=h(t)$, entonces:
+    \[ \frac{dz}{dt} = \pdv{f}{x}\frac{dx}{dt} + \pdv{f}{y}\frac{dy}{dt} \]
+\end{mytheorem}
+
+\end{document}
