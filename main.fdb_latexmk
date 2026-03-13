@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1772747459.93829 "c:/Users/irmin/OneDrive/Escritorio/ESCOM/main.tex" "main.pdf" "main" 1772747465.26848 0
-  "c:/Users/irmin/OneDrive/Escritorio/ESCOM/main.tex" 1772747456 8584 03261eb6922c6f594c89b257ab029070 ""
+["pdflatex"] 1772748317.34581 "c:/Users/irmin/OneDrive/Escritorio/ESCOM/main.tex" "main.pdf" "main" 1772748322.84552 0
+  "c:/Users/irmin/OneDrive/Escritorio/ESCOM/main.tex" 1772748315 8538 221b143289ec4e59754dc1bcf8fd5c35 ""
   "c:/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1772491584 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1772495197 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1772493459 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -246,10 +246,10 @@
   "c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1772516624 5449696 7a4268bbb79d6861e6c76c3147f95e78 ""
   "c:/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1772516847 3636413 979a577c53c1a5c76bc1a3dd8a13f5b2 ""
   "c:/texlive/2026/texmf.cnf" 1772516586 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1772747464 1328 9de20eb8044f53d2458e824f42d868ba "pdflatex"
-  "main.out" 1772747464 1447 967e4eb9bc1bf92cc05081d5f8508fad "pdflatex"
-  "main.tex" 1772747456 8584 03261eb6922c6f594c89b257ab029070 ""
-  "main.toc" 1772747464 707 ac73ddadda6a0932d178c2c4794bb8dd "pdflatex"
+  "main.aux" 1772748322 1328 9de20eb8044f53d2458e824f42d868ba "pdflatex"
+  "main.out" 1772748322 1447 967e4eb9bc1bf92cc05081d5f8508fad "pdflatex"
+  "main.tex" 1772748315 8538 221b143289ec4e59754dc1bcf8fd5c35 ""
+  "main.toc" 1772748322 707 ac73ddadda6a0932d178c2c4794bb8dd "pdflatex"
   (generated)
   "main.aux"
   "main.log"
