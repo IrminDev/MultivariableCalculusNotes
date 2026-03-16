@@ -49,131 +49,19 @@
 \tableofcontents
 \newpage
 
-\section{Sistemas coordenados}
+\include{unidad1/sistemasCoordenados}
 
-El estudio del cálculo multivariable requiere entender de forma clara los espacios geométricos donde se desarrollan las funciones de varias variables. A continuación, se desarrollan los conceptos del plano y el espacio euclidiano de forma detallada.
+\include{unidad1/vectores}
 
-\subsection{El Plano Cartesiano ($\mathbb{R}^2$)}
+\include{unidad1/productoPunto}
 
-El sistema de coordenadas rectangulares en el plano se construye mediante dos rectas reales perpendiculares que se intersectan en un punto llamado \textbf{origen}.
+\include{unidad1/productoCruz}
 
-\begin{mydefinition}{El Plano $\mathbb{R}^2$}
-El conjunto $\mathbb{R}^2$ es el conjunto de todos los pares ordenados de números reales. Matemáticamente se define como el producto cartesiano $\mathbb{R} \times \mathbb{R}$:
-$$ \mathbb{R}^2 = \{ (x, y) \mid x \in \mathbb{R}, y \in \mathbb{R} \} $$
-A cada par ordenado $(x, y)$ se le denomina \textbf{punto} en el plano.
-\end{mydefinition}
+\include{unidad1/rectas}
 
-Los elementos del par ordenado tienen los siguientes nombres:
-\begin{itemize}
-    \item $x$: Coordenada $x$ o \textbf{abscisa}. Representa la distancia dirigida desde el eje vertical.
-    \item $y$: Coordenada $y$ u \textbf{ordenada}. Representa la distancia dirigida desde el eje horizontal.
-\end{itemize}
+\include{unidad1/planos}
 
-Los ejes coordenados dividen al plano en cuatro regiones denominadas \textbf{cuadrantes}, numerados en sentido antihorario comenzando por el superior derecho (donde ambas semiejes son positivas).
-
-\begin{center}
-\shorthandoff{>}
-\begin{tikzpicture}[scale=1.2]
-    % Ejes
-    \draw[->, thick] (-3,0) -- (3,0) node[right] {$x$ (Eje de abscisas)};
-    \draw[->, thick] (0,-3) -- (0,3) node[above] {$y$ (Eje de ordenadas)};
-    
-    % Punto P
-    \coordinate (P) at (2, 1.5);
-    \draw[dashed, color=gray] (2,0) node[below, black] {$a$} -- (P);
-    \draw[dashed, color=gray] (0,1.5) node[left, black] {$b$} -- (P);
-    \filldraw[blue] (P) circle (2pt) node[anchor=south west] {$P(a,b)$};
-    
-    % Etiquetas de cuadrantes
-    \node[gray] at (2,2) {I $(+,+)$};
-    \node[gray] at (-2,2) {II $(-,+)$};
-    \node[gray] at (-2,-2) {III $(-,-)$};
-    \node[gray] at (2,-2) {IV $(+,-)$};
-    
-    % Origen
-    \node[below left] at (0,0) {$O(0,0)$};
-\end{tikzpicture}
-\end{center}
-
-\subsection{El Espacio Euclidiano ($\mathbb{R}^3$)}
-
-Para representar puntos en el espacio tridimensional, extendemos el concepto anterior añadiendo un tercer eje perpendicular a los otros dos.
-
-\begin{mydefinition}{El Espacio $\mathbb{R}^3$}
-El conjunto $\mathbb{R}^3$ es el conjunto de todas las ternas ordenadas de números reales:
-$$ \mathbb{R}^3 = \{ (x, y, z) \mid x, y, z \in \mathbb{R} \} $$
-\end{mydefinition}
-
-\subsubsection{Orientación y la Regla de la Mano Derecha}
-En ingeniería y física, es estándar utilizar un sistema de coordenadas \textit{dextrógiro} (mano derecha). 
-\begin{mynote}{Regla de la Mano Derecha}
-Si alineas los dedos de tu mano derecha en la dirección del eje $x$ positivo y los cierras hacia el eje $y$ positivo, tu pulgar apuntará en la dirección del eje $z$ positivo.
-\end{mynote}
-
-En este sistema:
-\begin{itemize}
-    \item El eje $z$ suele representar la altura o la cota vertical.
-    \item Los tres ejes definen tres \textbf{planos coordenados}:
-    \begin{itemize}
-        \item \textbf{Plano $xy$}: Formado por los ejes $x$ e $y$ (donde $z=0$).
-        \item \textbf{Plano $xz$}: Formado por los ejes $x$ y $z$ (donde $y=0$).
-        \item \textbf{Plano $yz$}: Formado por los ejes $y$ y $z$ (donde $x=0$).
-    \end{itemize}
-\end{itemize}
-
-Estos planos dividen el espacio en ocho regiones llamadas \textbf{octantes}. El primer octante es aquel donde $x, y, z > 0$.
-
-\subsubsection{Localización de un punto en el espacio}
-
-Para localizar un punto $P(a, b, c)$ en el espacio:
-1. Avanzamos $a$ unidades sobre el eje $x$.
-2. Nos movemos $b$ unidades paralelamente al eje $y$.
-3. Subimos (o bajamos) $c$ unidades paralelamente al eje $z$.
-
-\begin{center}
-\shorthandoff{>}
-\begin{tikzpicture}[x={(-0.5cm,-0.5cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, scale=1.5]
-    % Ejes (parte negativa punteada)
-    \draw[dashed, gray] (0,0,0) -- (-3,0,0); % x back
-    \draw[dashed, gray] (0,0,0) -- (0,-2,0); % y back
-    \draw[dashed, gray] (0,0,0) -- (0,0,-1); % z back
-    
-    % Ejes positivos
-    \draw[->, thick] (0,0,0) -- (3,0,0) node[below left] {$x$};
-    \draw[->, thick] (0,0,0) -- (0,4,0) node[right] {$y$};
-    \draw[->, thick] (0,0,0) -- (0,0,3) node[above] {$z$};
-    
-    % Coordenadas del punto
-    \def\x{2}
-    \def\y{3}
-    \def\z{2}
-    
-    % Construcción de la caja
-    \draw[dashed, blue] (0,0,0) -- (\x,0,0) node[left, black] {$a$};
-    \draw[dashed, blue] (\x,0,0) -- (\x,\y,0);
-    \draw[dashed, blue] (0,\y,0) -- (\x,\y,0);
-    \draw[dashed, blue] (0,0,0) -- (0,\y,0) node[below, black] {$b$};
-    
-    \draw[dashed, blue] (\x,\y,0) -- (\x,\y,\z); % Línea vertical al punto
-    
-    \draw[dashed, blue] (0,0,\z) -- (\x,0,\z);
-    \draw[dashed, blue] (0,0,\z) -- (0,\y,\z);
-    \draw[dashed, blue] (\x,0,\z) -- (\x,\y,\z);
-    \draw[dashed, blue] (0,\y,\z) -- (\x,\y,\z);
-    \draw[dashed, blue] (0,0,0) -- (0,0,\z) node[left, black] {$c$};
-    \draw[dashed, blue] (\x,0,0) -- (\x,0,\z);
-    \draw[dashed, blue] (0,\y,0) -- (0,\y,\z);
-
-    % Punto y planos etiqueta
-    \filldraw[red] (\x,\y,\z) circle (2pt) node[anchor=south west] {$P(a,b,c)$};
-\end{tikzpicture}
-\end{center}
-
-
-
-
-
-
+\include{unidad1/cilindros}
 
 
 
