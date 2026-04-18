@@ -1,8 +1,8 @@
-PWD c:/Users/irmin/OneDrive/Escritorio/ESCOM
+PWD c:/Users/irmin/Documents/MultivariableCalculusNotes
 INPUT c:/texlive/2026/texmf.cnf
 INPUT c:/texlive/2026/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/irmin/OneDrive/Escritorio/ESCOM/main.tex
+INPUT c:/Users/irmin/Documents/MultivariableCalculusNotes/main.tex
 OUTPUT main.log
 INPUT c:/texlive/2026/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -345,9 +345,9 @@ INPUT unidad1/vectores.aux
 INPUT ./unidad1/productoPunto.aux
 INPUT ./unidad1/productoPunto.aux
 INPUT unidad1/productoPunto.aux
-INPUT ./unidad1/ProductoCruz.aux
-INPUT ./unidad1/ProductoCruz.aux
-INPUT unidad1/ProductoCruz.aux
+INPUT ./unidad1/productoCruz.aux
+INPUT ./unidad1/productoCruz.aux
+INPUT unidad1/productoCruz.aux
 INPUT ./unidad1/rectas.aux
 INPUT ./unidad1/rectas.aux
 INPUT unidad1/rectas.aux
@@ -485,9 +485,9 @@ INPUT unidad1/vectores.aux
 INPUT ./unidad1/productoPunto.aux
 INPUT ./unidad1/productoPunto.aux
 INPUT unidad1/productoPunto.aux
-INPUT ./unidad1/ProductoCruz.aux
-INPUT ./unidad1/ProductoCruz.aux
-INPUT unidad1/ProductoCruz.aux
+INPUT ./unidad1/productoCruz.aux
+INPUT ./unidad1/productoCruz.aux
+INPUT unidad1/productoCruz.aux
 INPUT ./unidad1/rectas.aux
 INPUT ./unidad1/rectas.aux
 INPUT unidad1/rectas.aux
