@@ -1,3 +1,253 @@
 \section{Rectas en el espacio}
 
-Texto de ejemplo
+\subsection{Ecuaciones de la Recta en $\mathbb{R}^n$}
+
+Hasta este punto, se han estudiado los vectores de manera estática. Sin embargo, al introducir un parámetro escalar variable (usualmente denotado por $t$), los vectores permiten describir trayectorias o conjuntos continuos de puntos. Al hacer esto, se ingresa al dominio de las funciones vectoriales. 
+
+Uno de los casos más fundamentales de una función vectorial es la recta. En la geometría de un espacio de $n$ dimensiones, una recta $L$ no se define usualmente por una ecuación algebraica simple, sino que queda completamente determinada si se conocen dos elementos espaciales:
+\begin{enumerate}
+    \item Un punto fijo sobre la recta, representado por su vector de posición $\vec{r}_0$.
+    \item Un vector no nulo $\vec{v}$ que indica la dirección en la que se extiende la recta, conocido como vector director.
+\end{enumerate}
+
+\subsubsection{Ecuación Vectorial}
+
+Para localizar cualquier punto arbitrario $P$ sobre la recta, a partir de $\vec{r}_0$ se avanza una cierta distancia a lo largo de la dirección de $\vec{v}$. Esto equivale a sumar un múltiplo escalar $t$ del vector director.
+
+\begin{mydefinition}{Ecuación Vectorial de la Recta}
+La ecuación vectorial de una recta $L$ en $\mathbb{R}^n$ que pasa por el punto con vector de posición $\vec{r}_0$ y es paralela al vector director $\vec{v}$ se expresa como:
+$$ \vec{r}(t) = \vec{r}_0 + t\vec{v} $$
+Donde $t \in \mathbb{R}$ es el parámetro. Conforme $t$ toma todos los valores reales desde $-\infty$ hasta $\infty$, el vector $\vec{r}(t)$ traza todos los puntos infinitos de la recta.
+\end{mydefinition}
+
+\begin{center}
+\shorthandoff{>}
+\begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, scale=1.5]
+    % Ejes
+    \draw[->, gray] (0,0,0) -- (3,0,0) node[below left] {$x$};
+    \draw[->, gray] (0,0,0) -- (0,4,0) node[right] {$y$};
+    \draw[->, gray] (0,0,0) -- (0,0,3) node[above] {$z$};
+    
+    % Definición de coordenadas
+    \coordinate (O) at (0,0,0);
+    \coordinate (R0) at (1, 1, 2); % Vector r_0
+    \coordinate (V) at (1, 1.5, -0.5); % Vector director v (relativo)
+    \coordinate (R) at (3, 4, 1); % Vector r (con t=2)
+    
+    % Dibujo de la recta infinita (gris tenue)
+    \draw[dashed, thick, gray] (-1, -2, 3) -- (4, 5.5, 0.5) node[right, black] {Recta $L$};
+    
+    % Vectores de posición
+    \draw[->, very thick, blue] (O) -- (R0) node[midway, left=2pt] {$\vec{r}_0$};
+    \draw[->, very thick, purple] (O) -- (R) node[midway, below right] {$\vec{r}(t)$};
+    
+    % Vector director y su múltiplo escalar
+    \draw[->, very thick, red] (R0) -- ++(1, 1.5, -0.5) node[above] {$\vec{v}$};
+    \draw[->, very thick, red, opacity=0.5] (R0) -- (R) node[midway, above right, black] {$t\vec{v}$};
+    
+    % Puntos clave
+    \filldraw[black] (R0) circle (1.5pt) node[below=3pt, left=2pt] {$P_0$};
+    \filldraw[black] (R) circle (1.5pt) node[above=2pt, right=2pt] {$P(x,y,z)$};
+    \filldraw[black] (O) circle (1.5pt) node[left] {Origen};
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Ecuaciones Paramétricas y Simétricas en $\mathbb{R}^3$}
+
+Aunque la forma vectorial es válida para cualquier dimensión, en ingeniería frecuentemente se requiere analizar cómo se comporta cada variable espacial de manera independiente. Si se trabaja específicamente en el espacio tridimensional ($\mathbb{R}^3$), se pueden descomponer los vectores en sus componentes:
+Sea $\vec{r} = (x, y, z)$, $\vec{r}_0 = (x_0, y_0, z_0)$ y el vector director $\vec{v} = (a, b, c)$.
+
+Al sustituir estos componentes en la ecuación vectorial $\vec{r}(t) = \vec{r}_0 + t\vec{v}$ e igualar componente a componente, se obtienen las \textbf{ecuaciones paramétricas}:
+
+\[ x = x_0 + at \]
+\[ y = y_0 + bt \]
+\[ z = z_0 + ct \]
+
+Si ninguna de las componentes del vector director es igual a cero, es posible despejar el parámetro $t$ de cada una de las ecuaciones paramétricas:
+
+\[ t = \frac{x - x_0}{a}, \quad t = \frac{y - y_0}{b}, \quad t = \frac{z - z_0}{c} \]
+
+Al igualar estas expresiones, se elimina el parámetro $t$ y se obtiene la forma conocida como ecuaciones simétricas de la recta:
+
+\[ \frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c} \]
+
+\textit{Nota:} Si alguna de las componentes del vector director es cero (por ejemplo, $a = 0$), esto significa que la recta no cambia en esa dirección. La ecuación simétrica se escribiría como $x = x_0, \; \frac{y - y_0}{b} = \frac{z - z_0}{c}$.
+
+\subsubsection{Derivación del Segmento de Recta}
+
+En diversas aplicaciones, no se requiere la descripción de una recta infinita, sino únicamente la de un segmento finito que conecte un punto de inicio con un punto de destino.
+
+Sean $P_0$ y $P_1$ dos puntos en el espacio, definidos por sus respectivos vectores de posición $\vec{r}_0$ y $\vec{r}_1$. El objetivo es construir una función vectorial $\vec{r}(t)$ que describa exactamente el camino rectilíneo desde $P_0$ hasta $P_1$. 
+
+Para trazar una recta que pase por ambos puntos, se requiere un vector director $\vec{v}$ que indique la dirección y el sentido desde $\vec{r}_0$ hacia $\vec{r}_1$. Como se definió en las operaciones básicas, el desplazamiento exacto entre dos posiciones se obtiene calculando su vector diferencia:
+
+\[ \vec{v} = \vec{r}_1 - \vec{r}_0 \]
+
+Se toma la ecuación vectorial general de la recta ($\vec{r}(t) = \vec{r}_0 + t\vec{v}$) y se sustituye el vector director que acaba de ser deducido:
+
+\[ \vec{r}(t) = \vec{r}_0 + t(\vec{r}_1 - \vec{r}_0) \]
+
+Al distribuir el parámetro $t$ y factorizar los vectores comunes, se obtiene:
+
+\[ \vec{r}(t) = \vec{r}_0 + t\vec{r}_1 - t\vec{r}_0 \]
+\[ \vec{r}(t) = (1 - t)\vec{r}_0 + t\vec{r}_1 \]
+
+La ecuación obtenida aún describe una recta infinita. Para garantizar que la función vectorial describa única y exclusivamente el segmento entre los dos puntos de interés, se debe restringir el dominio del parámetro $t$ al intervalo cerrado $[0, 1]$. Esta restricción se justifica evaluando el comportamiento de la ecuación en los extremos del intervalo:
+
+\begin{itemize}
+    \item Al evaluar en el límite inferior ($t = 0$): 
+    \[ \vec{r}(0) = (1 - 0)\vec{r}_0 + (0)\vec{r}_1 = \vec{r}_0 \] 
+    La trayectoria comienza exactamente en el vector de posición inicial.
+    
+    \item Al evaluar en el límite superior ($t = 1$): 
+    \[ \vec{r}(1) = (1 - 1)\vec{r}_0 + (1)\vec{r}_1 = \vec{r}_1 \] 
+    La trayectoria finaliza exactamente en el vector de posición de destino.
+    
+    \item Cualquier valor intermedio ($0 < t < 1$) arroja un punto posicionado proporcionalmente a lo largo del segmento. Por ejemplo, si $t = 0.5$, se obtendrá exactamente el punto medio del segmento ($\frac{\vec{r}_0 + \vec{r}_1}{2}$).
+\end{itemize}
+
+\begin{mydefinition}{Ecuación del Segmento de Recta}
+El segmento de recta dirigido que conecta el vector de posición inicial $\vec{r}_0$ con el vector de posición final $\vec{r}_1$ se parametriza mediante la función:
+\[ \vec{r}(t) = (1 - t)\vec{r}_0 + t\vec{r}_1, \quad 0 \leq t \leq 1 \]
+\end{mydefinition}
+
+\begin{center}
+\shorthandoff{>}
+\begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, scale=1.5]
+    % Ejes
+    \draw[->, gray] (0,0,0) -- (3,0,0) node[below left] {$x$};
+    \draw[->, gray] (0,0,0) -- (0,4.5,0) node[right] {$y$};
+    \draw[->, gray] (0,0,0) -- (0,0,3) node[above] {$z$};
+
+    % Vectores base
+    \coordinate (O) at (0,0,0);
+    \coordinate (R0) at (1, 1, 2);
+    \coordinate (R1) at (2, 4, 1);
+
+    % Punto intermedio t=0.6
+    \coordinate (Rt) at (1.6, 2.8, 1.4);
+
+    % Vector de posición inicial y final
+    \draw[->, very thick, blue] (O) -- (R0) node[midway, left=2pt] {$\vec{r}_0$};
+    \draw[->, very thick, red] (O) -- (R1) node[midway, below right=1pt] {$\vec{r}_1$};
+
+    % Vector director (diferencia) en linea punteada fina
+    \draw[->, dashed, thick, purple, opacity=0.5] (R0) -- (R1) node[midway, above right, opacity=1] {$\vec{v} = \vec{r}_1 - \vec{r}_0$};
+
+    % Vector de posición dependiente de t
+    \draw[->, very thick, green!60!black] (O) -- (Rt) node[midway, right=10pt] {$\vec{r}(t)$};
+
+    % Segmento activo (línea sólida gruesa indicando el progreso)
+    \draw[very thick, purple] (R0) -- (Rt);
+
+    % Etiquetas de t
+    \filldraw[black] (R0) circle (1.5pt) node[below left] {$t=0$};
+    \filldraw[black] (R1) circle (1.5pt) node[above right] {$t=1$};
+    \filldraw[black] (Rt) circle (1.5pt) node[left=8pt] {$t = 0.6$};
+    
+    % Origen
+    \filldraw[black] (O) circle (1.5pt) node[left] {Origen};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Intersección entre Rectas en $\mathbb{R}^3$}
+
+En el plano bidimensional, dos rectas solo pueden ser paralelas o intersectarse en un punto. Sin embargo, en el espacio tridimensional, la relación entre dos rectas es más compleja. Existen tres casos posibles:
+
+\begin{enumerate}
+    \item \textbf{Rectas Intersecantes:} Existe exactamente un punto $P$ que pertenece a ambas rectas.
+    \item \textbf{Rectas Paralelas:} Los vectores directores son proporcionales ($\vec{v}_1 = k\vec{v}_2$) y no comparten puntos comunes.
+    \item \textbf{Rectas Cruzadas:} Las rectas no son paralelas pero tampoco se intersectan. Esto ocurre porque yacen en planos distintos.
+\end{enumerate}
+
+Para determinar si dos rectas $L_1$ y $L_2$ se intersectan, se deben igualar sus ecuaciones paramétricas. Es fundamental utilizar parámetros distintos (por ejemplo, $t$ para $L_1$ y $s$ para $L_2$) para evitar el error común de asumir que ambos parámetros son iguales, lo cual no es necesariamente cierto.
+
+Sean las rectas:
+$$ L_1: \vec{r}_1(t) = \vec{p}_0 + t\vec{v}_1 \implies \begin{cases} x = x_1 + a_1 t \\ y = y_1 + b_1 t \\ z = z_1 + c_1 t \end{cases} $$
+$$ L_2: \vec{r}_2(s) = \vec{q}_0 + s\vec{v}_2 \implies \begin{cases} x = x_2 + a_2 s \\ y = y_2 + b_2 s \\ z = z_2 + c_2 s \end{cases} $$
+
+Para hallar el punto de contacto, se resuelve el sistema de ecuaciones lineales:
+\begin{align}
+    x_1 + a_1 t &= x_2 + a_2 s \\
+    y_1 + b_1 t &= y_2 + b_2 s \\
+    z_1 + c_1 t &= z_2 + c_2 s
+\end{align}
+
+\begin{mytheorem}{Análisis del Sistema}
+Este sistema consta de tres ecuaciones con solo dos incógnitas ($t$ y $s$). Por lo tanto:
+\begin{itemize}
+    \item Si existe un par $(t, s)$ que satisface las tres ecuaciones simultáneamente, las rectas se intersectan. El punto de intersección se obtiene evaluando $t$ en $L_1$ o $s$ en $L_2$.
+    \item Si el sistema es inconsistente (los valores de $t$ y $s$ hallados en las primeras dos ecuaciones no satisfacen la tercera), las rectas no se intersectan.
+\end{itemize}
+\end{mytheorem}
+
+\begin{mynote}{Cómo distinguir rectas cruzadas de paralelas}
+Si el sistema es inconsistente:
+\begin{itemize}
+    \item Son paralelas si los vectores directores $\vec{v}_1$ y $\vec{v}_2$ son múltiplos entre sí.
+    \item Son cruzadas si los vectores directores no son múltiplos.
+\end{itemize}
+\end{mynote}
+
+\subsection{Distancia de un Punto a una Recta}
+
+Dado que la distancia más corta entre un punto y una recta se mide a lo largo del segmento que es estrictamente perpendicular a dicha recta, el cálculo se facilita enormemente al aprovechar las propiedades geométricas del producto vectorial.
+
+\begin{center}
+\shorthandoff{>}
+\begin{tikzpicture}[scale=1.5]
+    % Definición de puntos clave en un plano 2D directo
+    \coordinate (P0) at (0,0);
+    \coordinate (V_end) at (4.5,0);
+    \coordinate (S) at (2, 2.5);
+    \coordinate (Proj) at (2, 0); % Pie de la perpendicular
+
+    % Línea recta L
+    \draw[dashed, thick, gray] (-1,0) -- (6,0) node[right, black] {Recta $L$};
+    
+    % Vector director v
+    \draw[->, very thick, red] (P0) -- (V_end) node[midway, below] {$\vec{v}$};
+    
+    % Vector P0 -> S
+    \draw[->, very thick, blue] (P0) -- (S) node[midway, above left] {$\vec{P_0S}$};
+    
+    % Distancia d (línea perpendicular)
+    \draw[dashed, very thick, purple] (S) -- (Proj) node[midway, right] {$d$};
+    
+    % Símbolo de ángulo recto perfecto (Une a 'v' con 'd')
+    \draw (1.8,0) -- (1.8,0.2) -- (2,0.2);
+    
+    % Ángulo theta (Une a 'v' con 'P0S' en el origen)
+    % El ángulo real de (2, 2.5) es arctan(2.5/2) = 51.34 grados
+    \draw[thick] (0.8,0) arc (0:51.34:0.8) node[midway, right=2pt, yshift=2pt] {$\theta$};
+    
+    % Puntos etiquetados
+    \filldraw[black] (P0) circle (1.5pt) node[below left] {$P_0$};
+    \filldraw[black] (S) circle (1.5pt) node[above left] {$S$};
+    
+    % Etiqueta de deducción trigonométrica
+    \node[purple, font=\footnotesize, fill=white, inner sep=2pt] at (4.5, 1.25) {$d = \|\vec{P_0S}\| \sin\theta$};
+
+\end{tikzpicture}
+\end{center}
+
+Sea una recta $L$ en el espacio tridimensional definida por un punto conocido $P_0$ y un vector director no nulo $\vec{v}$. Sea $S$ un punto arbitrario en el espacio cuya distancia a la recta se desea calcular. Se busca encontrar la distancia perpendicular $d$ desde el punto $S$ hasta la recta $L$.\\
+
+Se traza un vector que inicie en el punto conocido de la recta, $P_0$, y termine en el punto exterior $S$. A este vector de desplazamiento se le denominará $\vec{P_0S}$.\\
+
+Al trazar una línea perpendicular desde $S$ hasta la recta $L$, se forma un triángulo rectángulo. En este triángulo, la hipotenusa corresponde a la magnitud del vector $\|\vec{P_0S}\|$, y el cateto opuesto al ángulo $\theta$ corresponde a la distancia $d$. \\
+
+Utilizando la definición del seno, se deduce que:
+
+$$ d = \|\vec{P_0S}\| \sin(\theta) $$
+
+Para expresar la distancia puramente en términos de los vectores involucrados, se multiplica y se divide la expresión anterior por la magnitud del vector director $\|\vec{v}\|$:
+
+$$ d = \frac{\|\vec{P_0S}\| \|\vec{v}\| \sin(\theta)}{\|\vec{v}\|} $$
+
+Al observar el numerador de la fracción resultante, se reconoce que esta es la definición formal de la magnitud del producto cruz entre los vectores $\vec{P_0S}$ y $\vec{v}$.
+
+\begin{mydefinition}{Distancia de un Punto a una Recta en $\mathbb{R}^3$}
+La distancia mínima $d$ desde un punto exterior $S$ a una recta $L$ se calcula como el cociente entre la magnitud del producto vectorial y la magnitud del vector director:
+$$ d = \frac{\|\vec{P_0S} \times \vec{v}\|}{\|\vec{v}\|} $$
+\end{mydefinition}
