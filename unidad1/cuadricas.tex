@@ -1,0 +1,326 @@
+
+\section{Superficies cuádricas}
+
+\subsection{Definición y forma general}
+
+Las superficies cuádricas son la extensión natural de las cónicas (elipse, parábola, hipérbola) al espacio tridimensional.
+
+\begin{mydefinition}{Superficie cuádrica}
+Una superficie cuádrica es el conjunto de puntos $(x, y, z) \in \mathbb{R}^3$ que satisfacen una ecuación de la forma:
+\[
+Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + Gx + Hy + Iz + J = 0
+\]
+donde $A, B, \ldots, J \in \mathbb{R}$ y al menos uno de los coeficientes cuadráticos es distinto de cero.
+\end{mydefinition}
+
+Aplicando traslaciones y rotaciones de los ejes, toda cuádrica no degenerada se reduce a una de las seis formas estándar que se estudian a continuación.
+
+\subsection{Método de las trazas}
+
+\begin{mydefinition}{Traza de una superficie}
+La traza de una superficie en un plano $P$ es la curva de intersección entre ambos. Las trazas más útiles son:
+\begin{itemize}
+    \item $z = k$: intersección con un plano horizontal.
+    \item $y = k$: intersección con un plano paralelo al plano $xz$.
+    \item $x = k$: intersección con un plano paralelo al plano $yz$.
+\end{itemize}
+Al variar $k$, se observa cómo cambia la sección transversal, lo que permite reconstruir la forma tridimensional de la superficie.
+\end{mydefinition}
+
+\subsection{Elipsoide}
+
+\begin{mydefinition}{Elipsoide}
+La ecuación estándar del elipsoide centrado en el origen es:
+\[
+\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1
+\]
+Los valores $a$, $b$ y $c$ son los semiejes en las direcciones $x$, $y$ y $z$ respectivamente. Si $a = b = c$, el elipsoide es una esfera de radio $a$.
+\end{mydefinition}
+
+\textbf{Trazas:} todas las trazas del elipsoide son elipses (o circunferencias en casos especiales).
+\begin{itemize}
+    \item $z = k$ (con $|k| < c$): $\;\dfrac{x^2}{a^2\left(1-\frac{k^2}{c^2}\right)} + \dfrac{y^2}{b^2\left(1-\frac{k^2}{c^2}\right)} = 1$ \quad (elipse)
+    \item $y = 0$: $\;\dfrac{x^2}{a^2} + \dfrac{z^2}{c^2} = 1$ \quad (elipse en el plano $xz$)
+    \item $x = 0$: $\;\dfrac{y^2}{b^2} + \dfrac{z^2}{c^2} = 1$ \quad (elipse en el plano $yz$)
+\end{itemize}
+
+El elipsoide es la única cuádrica acotada: todos sus puntos están dentro de la caja $[-a,a]\times[-b,b]\times[-c,c]$.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{20},
+    axis lines=center,
+    xlabel=$x$, ylabel=$y$, zlabel=$z$,
+    colormap/viridis,
+    title={Elipsoide: $\frac{x^2}{4} + y^2 + \frac{z^2}{4} = 1$\quad ($a=2,\,b=1,\,c=2$)}
+]
+\addplot3[
+    surf,
+    parametric,
+    domain=0:360,
+    domain y=0:180,
+    samples=40,
+    samples y=20,
+    opacity=0.85
+] ({2*sin(y)*cos(x)}, {sin(y)*sin(x)}, {2*cos(y)});
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Paraboloide elíptico}
+
+\begin{mydefinition}{Paraboloide elíptico}
+La ecuación estándar del paraboloide elíptico con vértice en el origen es:
+\[
+z = \frac{x^2}{a^2} + \frac{y^2}{b^2}
+\]
+La superficie se abre hacia el lado positivo del eje $z$. Si $a = b$, se obtiene el paraboloide circular (de revolución).
+\end{mydefinition}
+
+\textbf{Trazas:}
+\begin{itemize}
+    \item $z = k > 0$: $\;\dfrac{x^2}{a^2 k} + \dfrac{y^2}{b^2 k} = 1$ \quad (elipse que crece con $k$)
+    \item $z = 0$: solo el vértice en el origen
+    \item $y = 0$: $\;z = \dfrac{x^2}{a^2}$ \quad (parábola en el plano $xz$)
+    \item $x = 0$: $\;z = \dfrac{y^2}{b^2}$ \quad (parábola en el plano $yz$)
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{20},
+    axis lines=center,
+    xlabel=$x$, ylabel=$y$, zlabel=$z$,
+    colormap/viridis,
+    zmin=0,
+    title={Paraboloide elíptico: $z = x^2 + y^2$}
+]
+\addplot3[
+    surf,
+    domain=-2:2,
+    domain y=-2:2,
+    samples=25,
+    opacity=0.85
+] {x^2 + y^2};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Paraboloide hiperbólico}
+
+\begin{mydefinition}{Paraboloide hiperbólico}
+La ecuación estándar del paraboloide hiperbólico con punto de silla en el origen es:
+\[
+z = \frac{y^2}{b^2} - \frac{x^2}{a^2}
+\]
+\end{mydefinition}
+
+Esta superficie tiene la característica forma de silla de montar: desde el origen, sube en la dirección $y$ y baja en la dirección $x$.
+
+\textbf{Trazas:}
+\begin{itemize}
+    \item $z = k > 0$: $\;\dfrac{y^2}{b^2 k} - \dfrac{x^2}{a^2 k} = 1$ \quad (hipérbola abierta en dirección $y$)
+    \item $z = k < 0$: $\;\dfrac{x^2}{a^2|k|} - \dfrac{y^2}{b^2|k|} = 1$ \quad (hipérbola abierta en dirección $x$)
+    \item $z = 0$: $\;y/b = \pm\, x/a$ \quad (dos rectas que se intersectan --- punto de silla)
+    \item $y = 0$: $\;z = -\dfrac{x^2}{a^2}$ \quad (parábola hacia abajo)
+    \item $x = 0$: $\;z = \dfrac{y^2}{b^2}$ \quad (parábola hacia arriba)
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{20},
+    axis lines=center,
+    xlabel=$x$, ylabel=$y$, zlabel=$z$,
+    colormap/viridis,
+    title={Paraboloide hiperbólico: $z = y^2 - x^2$}
+]
+\addplot3[
+    surf,
+    domain=-2:2,
+    domain y=-2:2,
+    samples=25,
+    opacity=0.85
+] {y^2 - x^2};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Cono elíptico}
+
+\begin{mydefinition}{Cono elíptico}
+La ecuación estándar del cono elíptico con vértice en el origen es:
+\[
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = \frac{z^2}{c^2}
+\]
+Cuando $a = b$, se obtiene el cono circular recto. La superficie consta de dos napas simétricas respecto al origen.
+\end{mydefinition}
+
+\textbf{Trazas:}
+\begin{itemize}
+    \item $z = k \neq 0$: $\;\dfrac{x^2}{\left(\frac{ak}{c}\right)^2} + \dfrac{y^2}{\left(\frac{bk}{c}\right)^2} = 1$ \quad (elipse que se expande con $|k|$)
+    \item $z = 0$: solo el vértice en el origen
+    \item $y = 0$: $\;z = \pm\,\dfrac{c}{a}x$ \quad (dos rectas que se cruzan)
+    \item $x = 0$: $\;z = \pm\,\dfrac{c}{b}y$ \quad (dos rectas que se cruzan)
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{20},
+    axis lines=center,
+    xlabel=$x$, ylabel=$y$, zlabel=$z$,
+    colormap/viridis,
+    title={Cono: $z^2 = x^2 + y^2$}
+]
+\addplot3[
+    surf,
+    parametric,
+    domain=0:360,
+    domain y=0:2,
+    samples=40,
+    samples y=10,
+    opacity=0.85
+] ({y*cos(x)}, {y*sin(x)}, {y});
+\addplot3[
+    surf,
+    parametric,
+    domain=0:360,
+    domain y=0:2,
+    samples=40,
+    samples y=10,
+    opacity=0.85
+] ({y*cos(x)}, {y*sin(x)}, {-y});
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Hiperboloide de una hoja}
+
+\begin{mydefinition}{Hiperboloide de una hoja}
+La ecuación estándar del hiperboloide de una hoja con eje a lo largo de $z$ es:
+\[
+\frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 1
+\]
+\end{mydefinition}
+
+El hiperboloide de una hoja es una superficie conexa (una sola pieza). Su sección transversal horizontal es siempre una elipse, con tamaño mínimo en $z = 0$ que crece conforme $|z|$ aumenta.
+
+\textbf{Trazas:}
+\begin{itemize}
+    \item $z = k$: $\;\dfrac{x^2}{a^2\left(1+\frac{k^2}{c^2}\right)} + \dfrac{y^2}{b^2\left(1+\frac{k^2}{c^2}\right)} = 1$ \quad (elipse mínima en $k=0$)
+    \item $y = 0$: $\;\dfrac{x^2}{a^2} - \dfrac{z^2}{c^2} = 1$ \quad (hipérbola)
+    \item $x = 0$: $\;\dfrac{y^2}{b^2} - \dfrac{z^2}{c^2} = 1$ \quad (hipérbola)
+\end{itemize}
+
+\begin{mynote}{Relación con el cono}
+El cono y el hiperboloide de una hoja solo difieren en el lado derecho de la expresión $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}$: es $0$ para el cono y $1$ para el hiperboloide. Las ``paredes'' del hiperboloide se acercan asintóticamente al cono cuando $|z|\to\infty$.
+\end{mynote}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{20},
+    axis lines=center,
+    xlabel=$x$, ylabel=$y$, zlabel=$z$,
+    colormap/viridis,
+    title={Hiperboloide de una hoja: $x^2 + y^2 - z^2 = 1$}
+]
+\addplot3[
+    surf,
+    parametric,
+    domain=0:360,
+    domain y=-1.5:1.5,
+    samples=40,
+    samples y=20,
+    opacity=0.85
+] ({sqrt(1+y^2)*cos(x)}, {sqrt(1+y^2)*sin(x)}, {y});
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Hiperboloide de dos hojas}
+
+\begin{mydefinition}{Hiperboloide de dos hojas}
+La ecuación estándar del hiperboloide de dos hojas con eje a lo largo de $z$ es:
+\[
+\frac{z^2}{c^2} - \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1
+\]
+\end{mydefinition}
+
+Para que la ecuación tenga solución real se requiere $z^2/c^2 \geq 1$, es decir, $|z| \geq c$. La superficie no existe en la región $-c < z < c$ y consta de dos componentes separadas: una hoja para $z \geq c$ y otra para $z \leq -c$.
+
+\textbf{Trazas:}
+\begin{itemize}
+    \item $z = k$ con $|k| > c$: $\;\dfrac{x^2}{a^2\!\left(\frac{k^2}{c^2}-1\right)} + \dfrac{y^2}{b^2\!\left(\frac{k^2}{c^2}-1\right)} = 1$ \quad (elipse)
+    \item $|z| < c$: no existe traza (región vacía)
+    \item $y = 0$: $\;\dfrac{z^2}{c^2} - \dfrac{x^2}{a^2} = 1$ \quad (hipérbola abierta en dirección $z$)
+    \item $x = 0$: $\;\dfrac{z^2}{c^2} - \dfrac{y^2}{b^2} = 1$ \quad (hipérbola abierta en dirección $z$)
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{20},
+    axis lines=center,
+    xlabel=$x$, ylabel=$y$, zlabel=$z$,
+    colormap/viridis,
+    title={Hiperboloide de dos hojas: $z^2 - x^2 - y^2 = 1$}
+]
+\addplot3[
+    surf,
+    domain=-2:2,
+    domain y=-2:2,
+    samples=25,
+    opacity=0.85
+] {sqrt(1+x^2+y^2)};
+\addplot3[
+    surf,
+    domain=-2:2,
+    domain y=-2:2,
+    samples=25,
+    opacity=0.85
+] {-sqrt(1+x^2+y^2)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Resumen de superficies cuádricas}
+
+\begin{center}
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|l|c|l|}
+\hline
+\textbf{Superficie} & \textbf{Ecuación estándar (eje $z$)} & \textbf{Trazas características} \\
+\hline
+Elipsoide & $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$ & Todas elipses \\
+\hline
+Paraboloide elíptico & $z=\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}$ & Elipses (horiz.) / Parábolas (vert.) \\
+\hline
+Paraboloide hiperbólico & $z=\dfrac{y^2}{b^2}-\dfrac{x^2}{a^2}$ & Hipérbolas / Parábolas \\
+\hline
+Cono elíptico & $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=\dfrac{z^2}{c^2}$ & Elipses / Rectas cruzadas \\
+\hline
+Hiperboloide de una hoja & $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}=1$ & Elipses / Hipérbolas \\
+\hline
+Hiperboloide de dos hojas & $\dfrac{z^2}{c^2}-\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1$ & Elipses (si $|z|>c$) / Hipérbolas \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\subsection{Ejercicios}
+
+\begin{enumerate}
+    \item \input{unidad1/ejercicios/cuadricas/ex1}
+    \item \input{unidad1/ejercicios/cuadricas/ex2}
+    \item \input{unidad1/ejercicios/cuadricas/ex3}
+    \item \input{unidad1/ejercicios/cuadricas/ex4}
+    \item \input{unidad1/ejercicios/cuadricas/ex5}
+    \item \input{unidad1/ejercicios/cuadricas/ex6}
+    \item \input{unidad1/ejercicios/cuadricas/ex7}
+    \item \input{unidad1/ejercicios/cuadricas/ex8}
+    \item \input{unidad1/ejercicios/cuadricas/ex9}
+    \item \input{unidad1/ejercicios/cuadricas/ex10}
+\end{enumerate}
