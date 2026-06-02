@@ -1,1 +1,94 @@
 \section{Superficies cilíndricas}
+
+\subsection{Definición}
+
+Una superficie cilíndrica en el contexto del cálculo multivariable tiene un significado más general que el cilindro circular de la geometría básica. Engloba cualquier superficie generada por rectas paralelas que barren una curva.
+
+\begin{mydefinition}{Superficie cilíndrica}
+Una superficie cilíndrica es una superficie en $\mathbb{R}^3$ formada por todas las rectas generatrices paralelas a un eje fijo y que pasan a través de una curva plana fija denominada curva directriz.
+\end{mydefinition}
+
+Ejemplos de identificación:
+\begin{itemize}
+    \item $x^2 + y^2 = 1$: falta $z$ $\Rightarrow$ cilindro con eje paralelo al eje $z$ (sección circular).
+    \item $z = x^2$: falta $y$ $\Rightarrow$ cilindro con eje paralelo al eje $y$ (sección parabólica).
+    \item $y^2 - x^2 = 1$: falta $z$ $\Rightarrow$ cilindro con eje paralelo al eje $z$ (sección hiperbólica).
+\end{itemize}
+
+\subsection{Cómo graficar una superficie cilíndrica}
+
+\begin{enumerate}
+    \item \textbf{Identificar la variable ausente.} Esta indica la dirección de las generatrices.
+    \item \textbf{Trazar la curva directriz.} Dibujar la curva en el plano formado por las otras dos variables.
+    \item \textbf{Extender.} Extender la curva directriz en ambas direcciones a lo largo del eje de la variable ausente.
+\end{enumerate}
+
+\subsubsection{Cilindro circular: $x^2 + y^2 = 1$}
+
+La variable $z$ está ausente. La curva directriz en el plano $xy$ es la circunferencia unitaria. Al extruir a lo largo del eje $z$, obtenemos el cilindro circular recto.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{20},
+    axis lines=center,
+    xlabel=$x$, ylabel=$y$, zlabel=$z$,
+    xmin=-1.5, xmax=1.5,
+    ymin=-1.5, ymax=1.5,
+    zmin=-2, zmax=2,
+    colormap/viridis,
+    title={Cilindro circular: $x^2 + y^2 = 1$}
+]
+\addplot3[
+    surf,
+    parametric,
+    domain=0:360,
+    domain y=-2:2,
+    samples=40,
+    samples y=5,
+    opacity=0.8
+] ({cos(x)}, {sin(x)}, {y});
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Cilindro parabólico: $z = x^2$}
+
+La variable $y$ está ausente. La curva directriz en el plano $xz$ es la parábola $z = x^2$. Al extruir a lo largo del eje $y$, obtenemos el cilindro parabólico.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={60}{20},
+    axis lines=center,
+    xlabel=$x$, ylabel=$y$, zlabel=$z$,
+    colormap/viridis,
+    title={Cilindro parabólico: $z = x^2$}
+]
+\addplot3[
+    surf,
+    domain=-2:2,
+    domain y=-2:2,
+    samples=20,
+    samples y=5,
+    opacity=0.8
+] {x^2};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+
+\subsection{Ejercicios}
+
+\begin{enumerate}
+    \item \input{unidad1/ejercicios/cilindros/ex1}
+    \item \input{unidad1/ejercicios/cilindros/ex2}
+    \item \input{unidad1/ejercicios/cilindros/ex3}
+    \item \input{unidad1/ejercicios/cilindros/ex4}
+    \item \input{unidad1/ejercicios/cilindros/ex5}
+    \item \input{unidad1/ejercicios/cilindros/ex6}
+    \item \input{unidad1/ejercicios/cilindros/ex7}
+    \item \input{unidad1/ejercicios/cilindros/ex8}
+    \item \input{unidad1/ejercicios/cilindros/ex9}
+    \item \input{unidad1/ejercicios/cilindros/ex10}
+\end{enumerate}
