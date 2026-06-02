@@ -1,0 +1,7 @@
+En el análisis cinemático de mecanismos y robots, la aceleración de un punto que sigue una trayectoria curvilínea se descompone en dos componentes físicamente distintas. Demostrar rigurosamente que, para cualquier partícula que sigue una curva suave $\vec{r}(t)$, el vector aceleración admite la descomposición:
+\[ \vec{a}(t) = a_T\,\hat{T} + a_N\,\hat{N} \]
+y derivar las expresiones explícitas:
+\[ a_T = \frac{\vec{r}'(t)\cdot\vec{r}''(t)}{\|\vec{r}'(t)\|}, \qquad a_N = \frac{\|\vec{r}'(t)\times\vec{r}''(t)\|}{\|\vec{r}'(t)\|} \]
+Concluir verificando el resultado sobre el movimiento circular $\vec{r}(t) = (R\cos\omega t,\; R\sin\omega t,\; 0)$ e interpretar físicamente ambas componentes.
+
+\textit{Sugerencia:} Partir de $\vec{v} = v\hat{T}$ (con $v = \|\vec{r}'\|$), diferenciar con la regla del producto, y expandir $\hat{T}'$ usando la regla de la cadena junto con la primera fórmula de Frenet-Serret, $\dfrac{d\hat{T}}{ds} = \kappa\hat{N}$. Para las fórmulas computacionales, derivar $v^2 = \vec{r}'\cdot\vec{r}'$ y aplicar la identidad de Lagrange.
