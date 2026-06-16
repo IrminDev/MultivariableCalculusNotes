@@ -4,3 +4,8 @@
 *.toc
 *.out
 *.lof
+*.md5
+*.auxlock
+*.fdb_latexmk
+*.fls
+*.synctex.gz
