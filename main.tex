@@ -4,7 +4,8 @@
 \usepackage{amsmath, amsfonts, amssymb, amsthm} 
 \usepackage{mathtools}
 \usepackage{physics} 
-\usepackage{tikz} 
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing} % Para llaves (braces) en diagramas
 \usepackage{tikz-3dplot} % Agregado para mejores gráficos 3D si es necesario, o usando tikz estándar
 \usepackage{pgfplots} 
 \pgfplotsset{compat=1.18}
@@ -66,11 +67,21 @@
 \include{unidad1/cuadricas}
 
 \include{unidad2/funcionesVectoriales}
-
+ 
 \include{unidad2/funcionesEscalares}
 
 \include{unidad2/limites}
 
 \include{unidad2/derivadasParciales}
+
+\include{unidad2/planosTangentes}
+
+\include{unidad2/reglaDeLaCadena}
+
+\include{unidad2/derivadaDireccional}
+
+\include{unidad2/maximosMinimos}
+
+\include{unidad2/multiplicadoresLagrange}
 
 \end{document}
