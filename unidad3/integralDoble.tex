@@ -4,7 +4,7 @@
 
 La integral doble permite sumar los valores de una función de dos variables sobre una región del plano. Si $f(x,y)\geq 0$, puede interpretarse como el volumen del sólido que está debajo de la superficie $z=f(x,y)$ y encima de la región $R$ del plano $xy$. Si la función toma valores negativos, la integral representa un volumen con signo: las partes situadas debajo del plano $xy$ restan.
 
-Para empezar, consideremos una región rectangular
+Para empezar, considerese una región rectangular
 \[
 R=[a,b]\times[c,d]=\{(x,y):a\leq x\leq b,\ c\leq y\leq d\}.
 \]
@@ -12,7 +12,7 @@ Se divide $R$ en rectángulos pequeños de área $\Delta A$ y, en cada uno, se t
 \[
 \sum_{i,j} f(x_{ij}^*,y_{ij}^*)\,\Delta A
 \]
-aproxima el volumen. Al hacer los rectángulos cada vez más pequeños, la aproximación se vuelve exacta. Este límite se llama \textbf{integral doble} de $f$ sobre $R$ y se escribe
+aproxima el volumen. Al hacer los rectángulos cada vez más pequeños, la aproximación se vuelve exacta. Este límite se llama integral doble de $f$ sobre $R$ y se escribe
 \[
 \iint_R f(x,y)\,dA.
 \]
@@ -49,7 +49,7 @@ El procedimiento es el siguiente:
     \item Sustituir el resultado en la integral exterior y resolverla.
 \end{enumerate}
 
-\textbf{Ejemplo.} Calculemos
+\textbf{Ejemplo.} Calcula
 \[
 \int_0^2\int_1^3 (x+2y)\,dy\,dx.
 \]
@@ -74,7 +74,7 @@ R=[0,2]\times[1,3].
 
 \subsection{Teorema de Fubini}
 
-El teorema de Fubini justifica el método anterior. Dice que, para las funciones continuas en un rectángulo dado se puede elegir el orden más conveniente.
+El teorema de Fubini dice que, para las funciones continuas en un rectángulo dado se puede elegir el orden más conveniente.
 
 \begin{mytheorem}{Teorema de Fubini}
 Sea $f$ una función continua en el rectángulo $R=[a,b]\times[c,d]$. Entonces
@@ -142,7 +142,7 @@ Estas propiedades son las mismas ideas conocidas de las integrales de una variab
 
 \subsection{Integrales dobles en regiones generales}
 
-Hasta ahora se integró sobre rectángulos. Sin embargo, muchas regiones importantes están delimitadas por rectas, parábolas, circunferencias u otras curvas. Una \textbf{región general} es una región $R$ del plano que puede describirse mediante límites que dependen de una de las variables.
+Hasta ahora se integró sobre rectángulos. Sin embargo, muchas regiones importantes están delimitadas por rectas, parábolas, circunferencias u otras curvas. Una región general es una región $R$ del plano que puede describirse mediante límites que dependen de una de las variables.
 
 La idea no cambia: la integral doble suma los valores de $f$ sobre toda la región. Lo que cambia es que los extremos de la integral interior ya no son necesariamente constantes. Para plantear correctamente una integral, conviene seguir estos pasos:
 \begin{enumerate}
@@ -160,7 +160,7 @@ Una región es de \textbf{Tipo I} cuando una recta vertical corta a la región e
 \[
 R=\{(x,y):a\leq x\leq b,\ g_1(x)\leq y\leq g_2(x)\}.
 \]
-Para cada valor fijo de $x$, $y$ comienza en la curva inferior $g_1(x)$ y termina en la curva superior $g_2(x)$. Por el teorema de Fubini,
+Para cada valor fijo de $x$, $y$ comienza en la curva inferior $g_1(x)$ y termina en la curva superior $g_2(x)$. 
 \[
 \iint_R f(x,y)\,dA
 =\int_a^b\int_{g_1(x)}^{g_2(x)}f(x,y)\,dy\,dx.
@@ -487,7 +487,7 @@ V&=\int_0^1\int_y^{2-y}x\,dx\,dy
 
 \subsection{Integrales dobles en coordenadas polares}
 
-Las coordenadas polares describen un punto del plano mediante su distancia al origen y el ángulo que forma con el eje $x$. En lugar de usar $(x,y)$, usamos $(r,\theta)$, donde $r\geq0$ y $\theta$ se mide en radianes.
+Las coordenadas polares describen un punto del plano mediante su distancia al origen y el ángulo que forma con el eje $x$. En lugar de usar $(x,y)$, se usa $(r,\theta)$, donde $r\geq0$ y $\theta$ se mide en radianes.
 
 \subsubsection*{¿Por qué se usan?}
 
@@ -565,7 +565,7 @@ Calcule el área del disco $x^2+y^2\leq4$.
 \end{tikzpicture}
 \end{center}
 
-En polares, el disco se describe simplemente por $0\leq r\leq2$ y $0\leq\theta\leq2\pi$. Como el área corresponde a $f(x,y)=1$,
+En coordenadas polares, el disco se describe simplemente por $0\leq r\leq2$ y $0\leq\theta\leq2\pi$. Como el área corresponde a $f(x,y)=1$,
 \[
 A=\int_0^{2\pi}\int_0^2 r\,dr\,d\theta
 =\int_0^{2\pi}\left.\frac{r^2}{2}\right|_0^2d\theta
@@ -621,7 +621,7 @@ Calcule $\iint_R(x+y)\,dA$, donde $R$ es la región del primer cuadrante compren
 \end{tikzpicture}
 \end{center}
 
-La descripción polar es $0\leq\theta\leq\pi/2$ y $1\leq r\leq2$. Además,
+La región está delimitada por $0\leq\theta\leq\pi/2$ y $1\leq r\leq2$. Además,
 \[
 x+y=r\cos\theta+r\sin\theta=r(\cos\theta+\sin\theta).
 \]
@@ -799,29 +799,28 @@ E[XY]&=\int_0^1\int_0^{1-x}2xy\,dy\,dx=\frac1{12},\\
 La covarianza negativa refleja la geometría de la región: si $x$ crece, el intervalo posible para $y$ se reduce.
 
 \subsection{Ejercicios}
-
-Los ejercicios están ordenados de menor a mayor dificultad. Los primeros consolidan el uso de regiones Tipo I y Tipo II; después se introducen coordenadas polares y, al final, aplicaciones de la integral doble.
 \begin{enumerate}
-    \item \input{unidad3/integralDoble/ex1.tex}
-    \item \input{unidad3/integralDoble/ex2.tex}
-    \item \input{unidad3/integralDoble/ex3.tex}
-    \item \input{unidad3/integralDoble/ex4.tex}
-    \item \input{unidad3/integralDoble/ex5.tex}
-    \item \input{unidad3/integralDoble/ex6.tex}
-    \item \input{unidad3/integralDoble/ex7.tex}
-    \item \input{unidad3/integralDoble/ex8.tex}
-    \item \input{unidad3/integralDoble/ex9.tex}
-    \item \input{unidad3/integralDoble/ex10.tex}
-    \item \input{unidad3/integralDoble/ex11.tex}
-    \item \input{unidad3/integralDoble/ex12.tex}
-    \item \input{unidad3/integralDoble/ex13.tex}
-    \item \input{unidad3/integralDoble/ex14.tex}
-    \item \input{unidad3/integralDoble/ex15.tex}
-    \item \input{unidad3/integralDoble/ex16.tex}
-    \item \input{unidad3/integralDoble/ex17.tex}
-    \item \input{unidad3/integralDoble/ex18.tex}
-    \item \input{unidad3/integralDoble/ex19.tex}
-    \item \input{unidad3/integralDoble/ex20.tex}
-    \newpage
-    \item \input{unidad3/integralDoble/ex21.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex1.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex2.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex3.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex4.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex5.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex6.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex7.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex8.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex9.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex10.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex11.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex12.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex13.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex14.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex15.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex16.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex17.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex18.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex19.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex20.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex21.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex22.tex}
+    \item \input{unidad3/ejercicios/integralDoble/ex23.tex}
 \end{enumerate}

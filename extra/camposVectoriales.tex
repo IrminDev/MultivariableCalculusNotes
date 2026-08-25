@@ -2,17 +2,17 @@
 
 \subsection{Qué es un campo vectorial}
 
-Las funciones estudiadas hasta ahora asignan a cada punto un número real. Un campo vectorial asigna en cambio a cada punto un vector, de manera que a cada posición del dominio le corresponde una magnitud con dirección y sentido.
+Un campo vectorial es un tipo de función que asigna a cada punto un vector, de manera que a cada posición del dominio le corresponde una magnitud con dirección y sentido.
 
 \begin{mydefinition}{Campo vectorial}
-Un campo vectorial en $D \subseteq \mathbb{R}^n$ es una función $\mathbf{F}: D \to \mathbb{R}^n$ que asigna a cada punto $\mathbf{x} \in D$ un vector $\mathbf{F}(\mathbf{x}) \in \mathbb{R}^n$. En coordenadas:
+Un campo vectorial en $D \subseteq \mathbb{R}^n$ es una función $\mathbf{F}: D \to \mathbb{R}^n$ que asigna a cada punto $\mathbf{x} \in D$ un vector $\mathbf{F}(\mathbf{x}) \in \mathbb{R}^n$:
 \[
 \mathbf{F}(\mathbf{x}) = \bigl\langle F_1(\mathbf{x}),\, F_2(\mathbf{x}),\, \dots,\, F_n(\mathbf{x}) \bigr\rangle,
 \]
-donde cada componente $F_i: D \to \mathbb{R}$ es un campo escalar. El campo es continuo o diferenciable si lo son todas sus componentes.
+donde cada componente $F_i: D \to \mathbb{R}$ es un valor escalar. El campo es continuo o diferenciable si lo son todas sus componentes.
 \end{mydefinition}
 
-En el plano, un campo vectorial se escribe $\mathbf{F}(x, y) = \langle P(x, y),\, Q(x, y) \rangle$. En el espacio, $\mathbf{F}(x, y, z) = \langle P,\, Q,\, R \rangle$. Se representa gráficamente dibujando, en una selección de puntos, una flecha igual al vector asignado a ese punto: su longitud indica la magnitud y su orientación, la dirección.
+En el plano, un campo vectorial se escribe $\mathbf{F}(x, y) = \langle P(x, y),\, Q(x, y) \rangle$. En el espacio, $\mathbf{F}(x, y, z) = \langle P,\, Q,\, R \rangle$. Gráficamente se representa dibujando una flecha igual al vector asignado a ese punto.
 
 \begin{center}
 \shorthandoff{>}
@@ -46,9 +46,9 @@ Las flechas apuntan hacia la masa y se acortan al alejarse de ella.
 \]
 que apunta hacia afuera si $q > 0$ y hacia adentro si $q < 0$. Su estructura es idéntica a la del campo gravitacional salvo el signo y las constantes.
 
-\textbf{Campo magnético.} La corriente que circula por un conductor rectilíneo genera un campo magnético que gira alrededor del alambre. Sobre un plano perpendicular al conductor, las líneas del campo son circunferencias concéntricas, un patrón de rotación pura.
+\textbf{Campo magnético.} La corriente que circula por un conductor rectilíneo genera un campo magnético que gira alrededor del alambre. Sobre un plano perpendicular al conductor, las líneas del campo son circunferencias concéntricas.
 
-\textbf{Modelado de fluidos.} El campo de velocidades de un fluido asigna a cada punto la velocidad de la partícula que pasa por él. Con este campo se describen corrientes, remolinos y flujos alrededor de obstáculos. Los operadores que se introducen más adelante, la divergencia y el rotacional, miden respectivamente la expansión y el giro locales del fluido.
+\textbf{Modelado de fluidos.} El campo de velocidades de un fluido asigna a cada punto la velocidad de la partícula que pasa por él. Con este campo se describen corrientes, remolinos y flujos sobre un medio.
 
 Como ejemplo en el espacio, el campo $\mathbf{F}(x, y, z) = \langle -y,\, x,\, \tfrac{1}{2} \rangle$ combina una rotación en cada plano horizontal con un ascenso constante, de modo que las trayectorias del flujo son hélices.
 
@@ -161,7 +161,7 @@ Los tres campos siguientes ilustran los signos posibles de la divergencia.
 \end{tikzpicture}
 \end{center}
 
-En el campo central, el flujo que entra por el eje vertical se compensa con el que sale por el horizontal, de modo que la divergencia es cero pese a que el campo no es constante.
+En el campo con divergencia nula, el flujo que entra por el eje vertical se compensa con el que sale por el horizontal, de modo que la divergencia es cero pese a que el campo no es constante.
 
 \subsection{Rotacional}
 
@@ -244,11 +244,11 @@ Los tres campos planos siguientes ilustran los signos posibles de la componente 
 \end{tikzpicture}
 \end{center}
 
-El campo de la izquierda, aunque curva sus flechas, es el gradiente de $\varphi = xy$ y no produce giro neto: es irrotacional. Los otros dos giran en sentidos opuestos.
+En el campo irrotacional, aunque curva sus flechas, es el gradiente de $\varphi = xy$ y no produce giro neto: es irrotacional. Los otros dos giran en sentidos opuestos.
 
 \subsection{Propiedades}
 
-Las siguientes identidades relacionan el gradiente, la divergencia y el rotacional. En ellas $\varphi$ es un campo escalar y $\mathbf{F}$, $\mathbf{G}$ campos vectoriales, todos con las derivadas continuas necesarias.
+Las siguientes identidades relacionan el gradiente, la divergencia y el rotacional. En ellas $\varphi$ es un campo escalar y $\mathbf{F}$, $\mathbf{G}$ campos vectoriales.
 \begin{align}
 \nabla \cdot (\nabla \times \mathbf{F}) &= 0, \\
 \nabla \times (\nabla \varphi) &= \mathbf{0}, \\
@@ -258,9 +258,7 @@ Las siguientes identidades relacionan el gradiente, la divergencia y el rotacion
 \nabla \times (\nabla \times \mathbf{F}) &= \nabla (\nabla \cdot \mathbf{F}) - \nabla^2 \mathbf{F}.
 \end{align}
 
-\subsection{Ejemplo de demostración clásica}
-
-Para apreciar el trabajo que implica demostrar estas identidades por el método directo, se prueba la propiedad (5), $\nabla \cdot (\mathbf{F} \times \mathbf{G}) = \mathbf{G} \cdot (\nabla \times \mathbf{F}) - \mathbf{F} \cdot (\nabla \times \mathbf{G})$, desarrollando todas las componentes.
+\subsection{Demostración de la identidad (5)}
 
 Con $\mathbf{F} = \langle F_1, F_2, F_3 \rangle$ y $\mathbf{G} = \langle G_1, G_2, G_3 \rangle$, las componentes del producto cruz son:
 \[
@@ -273,7 +271,7 @@ Tomando la divergencia se derivan las tres componentes:
 + \frac{\partial}{\partial y}(F_3 G_1 - F_1 G_3)
 + \frac{\partial}{\partial z}(F_1 G_2 - F_2 G_1).
 \]
-Aplicando la regla del producto a cada uno de los seis términos se obtienen doce sumandos:
+Aplicando la regla del producto a cada uno de los seis términos se obtiene:
 \[
 \begin{aligned}
 \nabla \cdot (\mathbf{F} \times \mathbf{G}) =\;
@@ -282,12 +280,12 @@ Aplicando la regla del producto a cada uno de los seis términos se obtienen doc
 +\; & (\partial_z F_1)\,G_2 + F_1\,(\partial_z G_2) - (\partial_z F_2)\,G_1 - F_2\,(\partial_z G_1).
 \end{aligned}
 \]
-Se reagrupan primero los sumandos en que la derivada recae sobre $\mathbf{F}$, factorizando las componentes de $\mathbf{G}$:
+Reagrupando las derivadas de $\mathbf{F}$ y factorizando las componentes de $\mathbf{G}$:
 \[
 G_1(\partial_y F_3 - \partial_z F_2) + G_2(\partial_z F_1 - \partial_x F_3) + G_3(\partial_x F_2 - \partial_y F_1)
 = \mathbf{G} \cdot (\nabla \times \mathbf{F}).
 \]
-Luego los sumandos en que la derivada recae sobre $\mathbf{G}$, factorizando las componentes de $\mathbf{F}$:
+Y reagrupando las derivadas de $\mathbf{G}$, factorizando las componentes de $\mathbf{F}$:
 \[
 F_1(\partial_z G_2 - \partial_y G_3) + F_2(\partial_x G_3 - \partial_z G_1) + F_3(\partial_y G_1 - \partial_x G_2)
 = -\,\mathbf{F} \cdot (\nabla \times \mathbf{G}).
@@ -296,11 +294,10 @@ Sumando ambos grupos se llega a la identidad buscada:
 \[
 \nabla \cdot (\mathbf{F} \times \mathbf{G}) = \mathbf{G} \cdot (\nabla \times \mathbf{F}) - \mathbf{F} \cdot (\nabla \times \mathbf{G}). \qquad \square
 \]
-El procedimiento es correcto pero laborioso: exige escribir doce términos, controlar sus signos y reconocer las agrupaciones que reconstruyen cada rotacional. Para identidades con segundas derivadas, como (6), el volumen de términos crece aún más.
 
 \subsection{Notación tensorial}
 
-La notación tensorial, también llamada notación de índices, es una forma corta de escribir las operaciones con vectores. En lugar de escribir por separado las componentes $x$, $y$ y $z$, usamos letras como $i$, $j$ y $k$. Esto ayuda a hacer demostraciones más cortas y a detectar términos que se cancelan.
+La notación tensorial, también llamada notación de índices, es una forma corta de escribir las operaciones con vectores. En lugar de escribir por separado las componentes $x$, $y$ y $z$, se usan letras como $i$, $j$ y $k$. Esto ayuda a hacer demostraciones más cortas y a detectar términos que se cancelan.
 
 Usaremos las coordenadas usuales de $\mathbb{R}^3$:
 \[
@@ -326,7 +323,7 @@ El índice que aparece una sola vez indica la componente que queda al final. Deb
 \]
 \end{mynote}
 
-\subsubsection*{Dos símbolos que simplifican cálculos}
+\subsubsection*{Delta de Kronecker y símbolo de Levi-Civita}
 
 La delta de Kronecker funciona como un selector: vale $1$ cuando los dos índices son iguales y vale $0$ cuando son distintos:
 \[
@@ -349,8 +346,8 @@ El símbolo de Levi-Civita sirve para escribir el producto cruz. Su valor es
 \[
 \varepsilon_{ijk}=
 \begin{cases}
-+1,& (i,j,k)\text{ es una permutación par de }(1,2,3),\\
--1,& (i,j,k)\text{ es una permutación impar},\\
++1,& (i,j,k)\text{ es una permutación par de }(1,2,3) \text{(Ej. (3,1,2) y (2, 3, 1))},\\
+-1,& (i,j,k)\text{ es una permutación impar (Ej. (3,2,1) y (2,1,3))},\\
 0,& \text{alguno de los índices coincide}.
 \end{cases}
 \]
@@ -371,7 +368,7 @@ Cuando aparecen dos símbolos $\varepsilon$, se pueden convertir en deltas. Las 
 \end{align*}
 La primera de estas fórmulas es la más importante para demostrar identidades de productos cruzados.
 
-\subsubsection*{Una cancelación muy útil}
+\subsubsection*{Simetría y antisimetría}
 
 Si una expresión no cambia al intercambiar $i$ y $j$, se dice que es simétrica; si cambia de signo, se dice que es antisimétrica. Al multiplicar y sumar una de cada tipo, el resultado es cero:
 \[
@@ -379,9 +376,8 @@ S_{ij}=S_{ji},\quad A_{ij}=-A_{ji}
 \qquad\Longrightarrow\qquad
 S_{ij}A_{ij}=0.
 \]
-La razón es sencilla: al cambiar $i$ por $j$, la suma es la misma, pero también adquiere un signo menos; por tanto, solo puede valer cero. Esta idea explica por qué $\nabla\cdot(\nabla\times\mathbf{F})=0$ y $\nabla\times(\nabla\varphi)=\mathbf{0}$: las derivadas dobles se pueden intercambiar, pero $\varepsilon_{ijk}$ cambia de signo.
 
-\subsubsection*{Fórmulas para usar en demostraciones}
+\subsubsection*{Fórmulas básicas}
 
 Para vectores $\mathbf{a}$ y $\mathbf{b}$, un campo escalar $f$ y un campo vectorial $\mathbf{F}$, las fórmulas básicas son
 \begin{align*}
@@ -435,7 +431,7 @@ La divergencia contrae en un solo índice la derivada con la componente; el rota
 
 \subsection{Ejemplo de demostración con notación tensorial}
 
-Se demuestra la misma propiedad (5) con esta notación, para contrastar con el desarrollo clásico. Partiendo de $(\mathbf{F} \times \mathbf{G})_i = \varepsilon_{ijk}\, F_j G_k$:
+Se demuestra la misma propiedad (5) con esta notación, para contrastar con el desarrollo algebraico. Partiendo de $(\mathbf{F} \times \mathbf{G})_i = \varepsilon_{ijk}\, F_j G_k$:
 \[
 \nabla \cdot (\mathbf{F} \times \mathbf{G})
 = \partial_i \bigl( \varepsilon_{ijk}\, F_j G_k \bigr)
@@ -445,7 +441,7 @@ En el primer término, la antisimetría $\varepsilon_{ijk} = \varepsilon_{kij}$ 
 \[
 \nabla \cdot (\mathbf{F} \times \mathbf{G}) = \mathbf{G} \cdot (\nabla \times \mathbf{F}) - \mathbf{F} \cdot (\nabla \times \mathbf{G}). \qquad \square
 \]
-El mismo resultado que antes ocupó doce términos se obtiene ahora en tres pasos. Como segunda muestra del poder de la notación, las identidades (1) y (2) se reducen a una línea cada una:
+El mismo resultado que antes ocupó doce términos se obtuvo en tres pasos. Como segunda muestra del poder de la notación, las identidades (1) y (2) se reducen a una línea cada una:
 \[
 \nabla \cdot (\nabla \times \mathbf{F}) = \varepsilon_{ijk}\, \partial_i \partial_j F_k = 0,
 \qquad
@@ -454,8 +450,6 @@ El mismo resultado que antes ocupó doce términos se obtiene ahora en tres paso
 pues en ambos casos $\varepsilon_{ijk}$ es antisimétrico en dos índices sobre los que la doble derivada parcial es simétrica, y la contracción de un objeto antisimétrico con uno simétrico es nula.
 
 \subsection{Ejercicios}
-
-Los ejercicios están ordenados de menor a mayor dificultad. Intenta resolverlos antes de consultar las secciones anteriores.
 \begin{enumerate}
     \item \input{extra/ejercicios/camposVectoriales/ex1.tex}
     \item \input{extra/ejercicios/camposVectoriales/ex2.tex}

@@ -12,7 +12,7 @@ Las coordenadas polares de un punto $P$ son un par $(r,\theta)$, donde:
 \end{itemize}
 \end{mydefinition}
 
-\subsection{Cómo intuirlas geométricamente}
+\subsection{Intuición geométricaz}
 
 Para ubicar $(r,\theta)$, primero se gira un ángulo $\theta$ a partir del eje positivo $x$ y después se avanza una distancia $r$ en esa dirección. Por ejemplo, el punto $(3,\pi/4)$ se encuentra a distancia $3$ del origen, sobre la dirección que forma $45^\circ$ con el eje $x$.
 
@@ -38,7 +38,7 @@ No hay una sola forma de escribir el ángulo: dar una vuelta completa no cambia 
 \[
 (r,\theta),\quad (r,\theta+2\pi),\quad (r,\theta+4\pi)
 \]
-representan el mismo punto. En cálculo se prefiere medir $\theta$ en radianes, aunque los grados ayudan a visualizar ángulos conocidos.
+representan el mismo punto. Por ello generalmente se toma $0\leq\theta<2\pi$ para que cada punto tenga una sola representación polar.
 
 \subsection{La cuadrícula polar}
 
@@ -71,7 +71,7 @@ El segmento de longitud $r$ que va del origen a $P$ forma un triángulo rectáng
 \qquad
 \sin\theta=\frac{y}{r}.
 \]
-De aquí salen las dos componentes rectangulares del vector de posición:
+Obteniendo así las dos componentes rectangulares del vector:
 \[
 x=r\cos\theta,
 \qquad
@@ -79,15 +79,7 @@ y=r\sin\theta.
 \]
 Es decir, $r\cos\theta$ es la parte horizontal y $r\sin\theta$ es la parte vertical.
 
-También es útil nombrar dos direcciones unitarias:
-\[
-\mathbf{e}_r=\langle\cos\theta,\sin\theta\rangle,
-\qquad
-\mathbf{e}_\theta=\langle-\sin\theta,\cos\theta\rangle.
-\]
-El vector $\mathbf{e}_r$ apunta directamente hacia afuera del origen; $\mathbf{e}_\theta$ es perpendicular a él y apunta en el sentido en que aumenta el ángulo. A diferencia de los vectores unitarios rectangulares, estas direcciones cambian al movernos de un punto a otro.
-
-\subsection{Conversión entre coordenadas rectangulares y polares}
+\subsection{Conversiones entre sistemas de coordenadas}
 
 \subsubsection*{De polares a rectangulares}
 
@@ -139,7 +131,7 @@ Las coordenadas cilíndricas de un punto $P$ se escriben $(r,\theta,z)$, donde:
 \end{itemize}
 \end{mydefinition}
 
-\subsection{Cómo intuirlas geométricamente}
+\subsection{Intuición geométrica}
 
 Una forma sencilla de pensar en $(r,\theta,z)$ es la siguiente: baja el punto hasta el plano $xy$, localiza allí su posición polar $(r,\theta)$ y después súbelo una altura $z$. El conjunto de puntos que tienen el mismo valor de $r$ forma un cilindro alrededor del eje $z$.
 
@@ -166,6 +158,7 @@ Una forma sencilla de pensar en $(r,\theta,z)$ es la siguiente: baja el punto ha
         ({0.9*cos(\x)}, {0.9*sin(\x)}, 0);
     \node[orange!80!black, inner sep=1pt, yshift=-2pt] at ({1.15*cos(62)}, {1.15*sin(62)}, 0) {$\theta$};
     \fill[red!70!black] (P) circle (2pt) node[above right] {$P=(r,\theta,z)$};
+    \node[blue!75!black, inner sep=1pt, yshift=2pt] at (B) {$B$};
 \end{tikzpicture}
 \end{center}
 
@@ -188,7 +181,7 @@ Las tres coordenadas describen familias de superficies sencillas:
     \item $z=\text{constante}$ representa un plano horizontal.
 \end{itemize}
 
-\subsection{Conversión cilíndrica--rectangular}
+\subsection{Conversiones entre sistemas de coordenadas}
 
 \subsubsection*{De cilíndricas a rectangulares}
 
@@ -232,9 +225,9 @@ Usaremos la convención $(\rho,\theta,\varphi)$, donde:
 Normalmente se toma $\rho\geq 0$, $0\leq\theta<2\pi$ y $0\leq\varphi\leq\pi$.
 \end{mydefinition}
 
-\subsection{Cómo intuirlas geométricamente}
+\subsection{Intuición geométrica}
 
-Imagina una esfera centrada en el origen. Primero se elige una dirección horizontal con $\theta$; después se inclina esa dirección mediante $\varphi$ y, por último, se avanza una distancia $\rho$. De este modo, $(\rho,\theta,\varphi)$ localiza cualquier punto fuera del origen.
+Imagina una esfera centrada en el origen. Primero se elige una dirección horizontal sobre el plano $xy$ con $\theta$; después se inclina esa dirección mediante $\varphi$ y, por último, se avanza una distancia $\rho$. De este modo, $(\rho,\theta,\varphi)$ localiza cualquier punto fuera del origen.
 
 \begin{center}
 \begin{tikzpicture}[x={(-0.55cm,-0.28cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, scale=1, every node/.style={font=\small}]
@@ -263,6 +256,7 @@ Imagina una esfera centrada en el origen. Primero se elige una dirección horizo
     \node[teal!70!black, inner sep=1pt, above left, yshift=10pt, xshift=-5pt] at (-0.48,0.82,0.56) {$\varphi$};
     \fill[red!70!black] (P) circle (2pt) node[above right] {$P=(\rho,\theta,\varphi)$};
     \node[blue!65!black, fill=white, inner sep=1pt] at (-1.55,-0.7,2.05) {$\rho=2.35$};
+    \node[blue!75!black, yshift=2pt] at (B) {$B$};
 \end{tikzpicture}
 \end{center}
 
@@ -291,7 +285,7 @@ Las superficies de coordenada constante son:
     \item $\varphi=\text{constante}$: un cono con vértice en el origen.
 \end{itemize}
 
-\subsection{Conversión esférica--rectangular}
+\subsection{Conversiones entre sistemas de coordenadas}
 
 \subsubsection*{De esféricas a rectangulares}
 
@@ -342,8 +336,6 @@ Q=(-\sqrt{3},3,2)=\left(4,\frac{2\pi}{3},\frac{\pi}{3}\right).
 En el origen $\rho=0$ y los ángulos no están definidos. Cerca del origen conviene revisar con cuidado las expresiones que contienen $\theta$ o $\varphi$.
 
 \subsection{Ejercicios}
-
-Los ejercicios avanzan desde conversiones directas hasta la descripción de superficies y sólidos.
 \begin{enumerate}
     \item \input{extra/ejercicios/coordenadas/ex1.tex}
     \item \input{extra/ejercicios/coordenadas/ex2.tex}
