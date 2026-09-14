@@ -85,10 +85,14 @@ del tema.
   cada serie. Deben poder resolverse usando únicamente los contenidos ya
   presentados en los apuntes, álgebra sólida y Cálculo de una variable. No deben
   depender de teoría posterior, trucos no motivados ni herramientas externas.
-- Los enunciados son directos y no desglosan el procedimiento de resolución en
-  instrucciones extensas. Una pista breve puede incluirse solo cuando sea
-  necesaria para orientar un ejercicio que, de otro modo, quedaría fuera del
-  alcance de los contenidos presentados.
+- Los enunciados son directos, se redactan en modo imperativo y no desglosan el
+  procedimiento de resolución en instrucciones extensas. Se prefieren formas
+  como «Evalúe», «Grafique», «Formule» o «Determine».
+- Una pista breve puede incluirse solo cuando sea necesaria para orientar un
+  ejercicio que, de otro modo, quedaría fuera del alcance de los contenidos
+  presentados. Se escribe entre paréntesis y con el formato
+  `(hint: Intenta integrar primero respecto a $z$)`; la pista orienta sin
+  describir la solución completa.
 - Los incisos deben ser independientes cuando sea posible. Si son consecutivos,
   el enunciado debe hacer explícita la dependencia y guiar hacia la conclusión
   sin resolverla.
