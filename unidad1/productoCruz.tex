@@ -40,34 +40,17 @@ Como se estableció anteriormente, el vector resultante $\vec{u} \times \vec{v}$
 
 El sentido de este nuevo vector es determinado por la \textbf{Regla de la Mano Derecha}. Si se extienden los dedos de la mano derecha en la dirección del primer vector ($\vec{u}$) y se flexionan hacia el segundo vector ($\vec{v}$), el pulgar extendido indicará la dirección y sentido del vector resultante $\vec{u} \times \vec{v}$. Esta dependencia del orden implica que el producto cruz no es conmutativo, se cumple que $\vec{u} \times \vec{v} = -(\vec{v} \times \vec{u})$.
 
+
 \begin{center}
-\shorthandoff{>}
-\begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, scale=1.5]
-    % Plano que contiene a u y v
-    \filldraw[fill=blue!10!white, draw=blue!50!white, thick] 
-        (-2,-1,0) -- (3,-1,0) -- (4,3,0) -- (-1,3,0) -- cycle;
-    \node[blue!80!black] at (-1.5, 1, 0) {Plano de $\vec{u}$ y $\vec{v}$};
-    
-    % Vectores base u y v
-    \draw[->, very thick, blue] (0,0,0) -- (2,0,0) node[below left] {$\vec{u}$};
-    \draw[->, very thick, red] (0,0,0) -- (0,2,0) node[below right] {$\vec{v}$};
-    
-    % Ángulo theta entre u y v
-    \draw[thick] (0.6,0,0) arc (0:90:0.6) node[midway, below=3pt] {$\theta$};
-    
-    % Vector Producto Cruz Resultante
-    \draw[->, very thick, purple] (0,0,0) -- (0,0,3) node[above] {$\vec{u} \times \vec{v}$};
-    
-    % Indicadores de perpendicularidad
-    % Con u
-    \draw[thick] (0.3,0,0) -- (0.3,0,0.3) -- (0,0,0.3);
-    % Con v
-    \draw[thick] (0,0.3,0) -- (0,0.3,0.3) -- (0,0,0.3);
-    
-    % Punto de origen
-    \filldraw[black] (0,0,0) circle (1.5pt) node[left=3pt] {Origen};
-\end{tikzpicture}
+\begin{minipage}{.9\textwidth}
+\centering
+\begingroup\shorthandoff{>}
+\def\manoPrimero{\vec{u}}\def\manoSegundo{\vec{v}}\def\manoResultado{\vec{u}\times\vec{v}}
+\input{extra/figuras/manoDerechaProducto.tex}
+\endgroup
+\end{minipage}
 \end{center}
+
 
 Para verificar que dos vectores son perpendiculares, basta con demostrar que su producto punto es igual a cero. Por lo tanto, si $\vec{w} = \vec{u} \times \vec{v}$, se debe cumplir de manera simultánea que $\vec{w} \cdot \vec{u} = 0$ y $\vec{w} \cdot \vec{v} = 0$.
 

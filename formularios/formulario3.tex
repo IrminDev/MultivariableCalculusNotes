@@ -1,0 +1,192 @@
+﻿\section{Formulario de la unidad 3}
+\begingroup
+\footnotesize
+\setlength{\parindent}{0pt}
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{3pt}
+\setlength{\belowdisplayshortskip}{3pt}
+
+\subsection*{Integrales dobles y triples}
+Para integrandos continuos y regiones con las fronteras indicadas:
+\begin{align*}
+D=\{a\leq x\leq b,\ g_1(x)\leq y\leq g_2(x)\}:&\quad
+\iint_D f\,dA=\int_a^b\int_{g_1(x)}^{g_2(x)} f(x,y)\,dy\,dx,\\
+D=\{c\leq y\leq d,\ h_1(y)\leq x\leq h_2(y)\}:&\quad
+\iint_D f\,dA=\int_c^d\int_{h_1(y)}^{h_2(y)} f(x,y)\,dx\,dy.
+\end{align*}
+\[
+E=\{(x,y,z):(x,y)\in D,\ u(x,y)\leq z\leq v(x,y)\},\qquad
+\iiint_E f\,dV=\iint_D\int_{u(x,y)}^{v(x,y)} f(x,y,z)\,dz\,dA.
+\]
+En rectángulos o cajas se puede integrar en cualquier orden (Fubini).
+En regiones generales, cada cambio de orden requiere ajustar los límites.
+\[
+A(D)=\iint_D1\,dA,\qquad V(E)=\iiint_E1\,dV,
+\qquad V(E)=\iint_D(v-u)\,dA.
+\]
+
+\subsection*{Coordenadas polares, cilíndricas y esféricas}
+\begin{align*}
+\text{Polares:}&\quad x=r\cos\theta,\quad y=r\sin\theta,\quad dA=r\,dr\,d\theta,\\
+\text{Cilíndricas:}&\quad x=r\cos\theta,\quad y=r\sin\theta,\quad z=z,\quad dV=r\,dr\,d\theta\,dz,\\
+\text{Esféricas:}&\quad x=\rho\sin\varphi\cos\theta,\quad
+ y=\rho\sin\varphi\sin\theta,\quad z=\rho\cos\varphi,\\
+&\quad dV=\rho^2\sin\varphi\,d\rho\,d\varphi\,d\theta.
+\end{align*}
+Se tiene $r\geq0$, $\rho\geq0$, $0\leq\varphi\leq\pi$;
+$\varphi$ se mide desde $+z$ y $\theta$ es el ángulo en el plano $xy$.
+\[
+x^2+y^2=r^2=\rho^2\sin^2\varphi,\qquad x^2+y^2+z^2=\rho^2.
+\]
+
+\subsection*{Cambio de variable}
+Para transformaciones $T$ de clase $C^1$, biyectivas entre los interiores de las
+regiones y con jacobiano no nulo en el interior:
+\[
+J_2=\frac{\partial(x,y)}{\partial(u,v)}=x_uy_v-x_vy_u,\qquad
+\iint_{T(D)} f\,dA=\iint_D f(T(u,v))\,|J_2|\,du\,dv.
+\]
+\[
+J_3=\frac{\partial(x,y,z)}{\partial(u,v,w)}
+=\begin{vmatrix}x_u&x_v&x_w\\y_u&y_v&y_w\\z_u&z_v&z_w\end{vmatrix},\qquad
+\iiint_{T(B)}f\,dV=\iiint_B f(T(u,v,w))\,|J_3|\,du\,dv\,dw.
+\]
+
+\subsection*{Masa, centro de masa y momentos de inercia}
+Para densidad de masa $\rho_m\geq0$ y masa total $m>0$:
+\[
+\begin{array}{c|c|c|c}
+\text{Distribución}&dm&m&\text{Centro de masa}\\\hline
+\text{Alambre }C&\rho_m\,ds&\displaystyle\int_C\rho_m\,ds&
+\displaystyle\frac1m\int_C\vec r\,\rho_m\,ds\\[5pt]
+\text{Lámina plana }D&\rho_m\,dA&\displaystyle\iint_D\rho_m\,dA&
+\displaystyle\frac1m\iint_D\langle x,y\rangle\rho_m\,dA\\[5pt]
+\text{Lámina curva }S&\rho_m\,dS&\displaystyle\iint_S\rho_m\,dS&
+\displaystyle\frac1m\iint_S\vec r\,\rho_m\,dS\\[5pt]
+\text{Sólido }E&\rho_m\,dV&\displaystyle\iiint_E\rho_m\,dV&
+\displaystyle\frac1m\iiint_E\langle x,y,z\rangle\rho_m\,dV
+\end{array}
+\]
+\[
+\text{Lámina plana:}\quad I_x=\iint_D y^2\rho_m\,dA,\quad
+I_y=\iint_D x^2\rho_m\,dA,\quad I_O=I_x+I_y.
+\]
+\[
+\text{Sólido:}\quad
+I_x=\iiint_E(y^2+z^2)\rho_m\,dV,\quad
+I_y=\iiint_E(x^2+z^2)\rho_m\,dV,\quad
+I_z=\iiint_E(x^2+y^2)\rho_m\,dV.
+\]
+Para densidad de carga $\rho_e$, $Q=\iiint_E\rho_e\,dV$.
+El valor medio de $f$ en $D$ es $\displaystyle f_{\mathrm{med}}=A(D)^{-1}\iint_D f\,dA$;
+en un sólido se usa $V(E)^{-1}\iiint_E f\,dV$.
+
+\subsection*{Integrales de línea}
+Para $C:\vec r(t)$, $a\leq t\leq b$, regular por partes y recorrida una sola vez:
+\[
+ds=\|\vec r\,'(t)\|\,dt,\qquad
+\int_C f\,ds=\int_a^b f(\vec r(t))\|\vec r\,'(t)\|\,dt,
+\qquad L(C)=\int_C1\,ds.
+\]
+\[
+\int_C\mathbf F\cdot d\vec r
+=\int_a^b\mathbf F(\vec r(t))\cdot\vec r\,'(t)\,dt
+=\int_C P\,dx+Q\,dy+R\,dz,
+\quad\mathbf F=\langle P,Q,R\rangle.
+\]
+La integral respecto de $ds$ no cambia al invertir el recorrido;
+la integral vectorial cambia de signo.
+Para $\mathbf F=\nabla\psi$, con $\psi\in C^1$ y $C$ de $A$ a $B$:
+\[
+\int_C\mathbf F\cdot d\vec r=\psi(B)-\psi(A),\qquad
+\oint_C\mathbf F\cdot d\vec r=0\quad(C\text{ cerrada}).
+\]
+
+\subsection*{Superficies e integrales de superficie}
+Para una parametrización regular $\vec r(u,v)$, $(u,v)\in D$, que recorre $S$
+una sola vez salvo en la frontera:
+\[
+\vec N=\vec r_u\times\vec r_v\ne\mathbf0,\qquad
+\mathbf n=\pm\frac{\vec N}{\|\vec N\|},\qquad
+dS=\|\vec N\|\,du\,dv.
+\]
+\[
+\text{Plano tangente en }P_0=\vec r(u_0,v_0):\quad
+\vec N(u_0,v_0)\cdot(\langle x,y,z\rangle-P_0)=0.
+\]
+\[
+\iint_S f\,dS=\iint_D f(\vec r(u,v))\|\vec N\|\,du\,dv,
+\qquad A(S)=\iint_S1\,dS.
+\]
+Si $\vec N$ coincide con la orientación elegida,
+\[
+\Phi_S(\mathbf F)=\iint_S\mathbf F\cdot\mathbf n\,dS
+=\iint_D\mathbf F(\vec r(u,v))\cdot\vec N\,du\,dv.
+\]
+Para $S:z=h(x,y)$ sobre $D$, con orientación hacia arriba:
+\[
+dS=\sqrt{1+h_x^2+h_y^2}\,dA,\qquad
+\mathbf n\,dS=\langle-h_x,-h_y,1\rangle\,dA.
+\]
+\[
+\iint_S f\,dS=\iint_D f(x,y,h(x,y))\sqrt{1+h_x^2+h_y^2}\,dA,
+\]
+\[
+\Phi_S(\mathbf F)=\iint_D\mathbf F(x,y,h(x,y))\cdot\langle-h_x,-h_y,1\rangle\,dA.
+\]
+Invertir la normal cambia el signo del flujo, pero no el de la integral escalar.
+
+\subsection*{Teorema de Green}
+Para $P,Q\in C^1$ en un abierto que contiene una región plana admisible $D$,
+con $C=\partial D$ orientada positivamente:
+\[
+\oint_C P\,dx+Q\,dy=\iint_D(Q_x-P_y)\,dA.
+\]
+\[
+\oint_C\langle P,Q\rangle\cdot\mathbf n_{\mathrm{ext}}\,ds
+=\oint_C P\,dy-Q\,dx=\iint_D(P_x+Q_y)\,dA.
+\]
+\[
+A(D)=\oint_C x\,dy=-\oint_C y\,dx
+=\frac12\oint_C(x\,dy-y\,dx).
+\]
+Orientación positiva: frontera exterior antihoraria y fronteras de orificios
+horarias, vistas desde $+z$.
+
+\newpage
+\subsection*{Divergencia, rotacional, Gauss y Stokes}
+Para $\mathbf F=\langle P,Q,R\rangle\in C^1$:
+\[
+\nabla\cdot\mathbf F=P_x+Q_y+R_z,\qquad
+\nabla\times\mathbf F=\langle R_y-Q_z,\ P_z-R_x,\ Q_x-P_y\rangle.
+\]
+Gauss: $E$ es un sólido admisible, $S=\partial E$ es toda su frontera,
+$\mathbf n$ es exterior y $\mathbf F\in C^1$ en un abierto que contiene a todo $E$.
+\[
+\iint_{\partial E}\mathbf F\cdot\mathbf n\,dS
+=\iiint_E\nabla\cdot\mathbf F\,dV.
+\]
+Stokes: $S$ es compacta, orientada y regular de clase $C^1$ por partes,
+$C=\partial S$ es toda su frontera suave por partes y $\mathbf F\in C^1$
+en un abierto que contiene a $S$.
+\[
+\oint_{\partial S}\mathbf F\cdot d\vec r
+=\iint_S(\nabla\times\mathbf F)\cdot\mathbf n\,dS.
+\]
+La normal y el recorrido de $\partial S$ son compatibles por la regla de la mano
+ derecha. Se suman todas las componentes de la frontera.
+
+\subsection*{Probabilidad con densidad conjunta}
+Para una densidad $p(x,y)\geq0$ sobre $D$, con $\iint_Dp\,dA=1$:
+\[
+\mathbb P((X,Y)\in A)=\iint_Ap\,dA\quad(A\subseteq D),\qquad
+\mathbb E[g(X,Y)]=\iint_D g(x,y)p(x,y)\,dA.
+\]
+\[
+p_X(x)=\int_{\mathbb R}p(x,y)\,dy,\quad
+p_Y(y)=\int_{\mathbb R}p(x,y)\,dx,\quad
+\operatorname{Var}(X)=\mathbb E[X^2]-\mathbb E[X]^2.
+\]
+La densidad se extiende por cero fuera de $D$.
+\endgroup

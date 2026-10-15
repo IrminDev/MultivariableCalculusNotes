@@ -1,0 +1,136 @@
+﻿\section{Formulario de la unidad 1}
+\begingroup
+\small
+\setlength{\parindent}{0pt}
+\setlength{\abovedisplayskip}{7pt}
+\setlength{\belowdisplayskip}{7pt}
+
+\subsection*{Vectores y producto punto}
+Para $\vec u,\vec v\in\mathbb R^n$, $\lambda\in\mathbb R$ y puntos $P,Q$:
+\[
+\overrightarrow{PQ}=Q-P,\qquad
+\vec u\pm\vec v=(u_i\pm v_i)_{i=1}^n,\qquad
+\lambda\vec v=(\lambda v_i)_{i=1}^n.
+\]
+\[
+\|\vec v\|=\sqrt{\sum_{i=1}^n v_i^2},\qquad
+d(P,Q)=\|Q-P\|,\qquad
+\hat u=\frac{\vec v}{\|\vec v\|}\ (\vec v\ne\vec0),\qquad
+M=\frac{P+Q}{2}.
+\]
+\[
+\vec u\cdot\vec v=\sum_{i=1}^n u_iv_i,\qquad
+\vec v\cdot\vec v=\|\vec v\|^2,\qquad
+\vec u\perp\vec v\ \Longleftrightarrow\ \vec u\cdot\vec v=0.
+\]
+Ángulo entre vectores no nulos y proyecciones sobre $\vec v\ne\vec0$:
+\[
+\theta=\arccos\frac{\vec u\cdot\vec v}{\|\vec u\|\|\vec v\|},\qquad
+\operatorname{proj}_{\vec v}\vec u=\frac{\vec u\cdot\vec v}{\|\vec v\|^2}\vec v,
+\qquad
+\operatorname{comp}_{\vec v}\vec u=\frac{\vec u\cdot\vec v}{\|\vec v\|}.
+\]
+Cosenos directores de $\vec v=(v_1,v_2,v_3)\ne\vec0$:
+\[
+(\cos\alpha,\cos\beta,\cos\gamma)=\frac{\vec v}{\|\vec v\|},
+\qquad \cos^2\alpha+\cos^2\beta+\cos^2\gamma=1.
+\]
+
+\subsection*{Producto cruz, áreas y volúmenes}
+Para $\vec u,\vec v,\vec w\in\mathbb R^3$:
+\[
+\vec u\times\vec v
+=\begin{vmatrix}\hat\imath&\hat\jmath&\hat k\\u_1&u_2&u_3\\v_1&v_2&v_3\end{vmatrix}
+=(u_2v_3-u_3v_2,\ u_3v_1-u_1v_3,\ u_1v_2-u_2v_1).
+\]
+\[
+\|\vec u\times\vec v\|=\|\vec u\|\|\vec v\|\sin\theta,
+\qquad \vec u\times\vec v=-\vec v\times\vec u.
+\]
+Para vectores no nulos, $\vec u\parallel\vec v\Longleftrightarrow\vec u\times\vec v=\vec0$.
+\[
+\vec u\cdot(\vec v\times\vec w)
+=\begin{vmatrix}u_1&u_2&u_3\\v_1&v_2&v_3\\w_1&w_2&w_3\end{vmatrix},\qquad
+\vec u\times(\vec v\times\vec w)=\vec v(\vec u\cdot\vec w)-\vec w(\vec u\cdot\vec v).
+\]
+\[
+A_{\text{paralelogramo}}=\|\vec u\times\vec v\|,\qquad
+A_{\text{triángulo}}=\tfrac12\|\vec u\times\vec v\|,
+\]
+\[
+V_{\text{paralelepípedo}}=|\vec u\cdot(\vec v\times\vec w)|,\qquad
+V_{\text{tetraedro}}=\tfrac16|\vec u\cdot(\vec v\times\vec w)|.
+\]
+
+\subsection*{Rectas y segmentos}
+Para $P_0=(x_0,y_0,z_0)$ y $\vec v=(a,b,c)\ne\vec0$:
+\[
+L:\vec r(t)=\vec r_0+t\vec v,\quad t\in\mathbb R,
+\qquad(x,y,z)=(x_0+at,y_0+bt,z_0+ct).
+\]
+\[
+\frac{x-x_0}{a}=\frac{y-y_0}{b}=\frac{z-z_0}{c}\quad(a,b,c\ne0).
+\]
+Una componente nula del director se expresa como coordenada constante.
+\[
+\text{Segmento: }\vec r(t)=(1-t)\vec r_0+t\vec r_1,\quad 0\leq t\leq1,
+\qquad
+d(S,L)=\frac{\|\overrightarrow{P_0S}\times\vec v\|}{\|\vec v\|}.
+\]
+
+\newpage
+\subsection*{Planos e intersecciones}
+Para $\vec n=(a,b,c)\ne\vec0$ y $P_0$ en el plano:
+\[
+\Pi:\vec n\cdot(P-P_0)=0
+\quad\Longleftrightarrow\quad
+a(x-x_0)+b(y-y_0)+c(z-z_0)=0.
+\]
+\[
+\Pi:ax+by+cz+d=0,\qquad d=-(ax_0+by_0+cz_0).
+\]
+Plano por tres puntos no colineales y distancia de $S=(x_1,y_1,z_1)$ a $\Pi$:
+\[
+\vec n=\overrightarrow{AB}\times\overrightarrow{AC},\qquad
+\vec n\cdot(P-A)=0,\qquad
+d(S,\Pi)=\frac{|ax_1+by_1+cz_1+d|}{\sqrt{a^2+b^2+c^2}}.
+\]
+Intersecciones:
+\begin{align*}
+L_1\cap L_2:&\quad \vec p_0+t\vec v_1=\vec q_0+s\vec v_2,\\
+L\cap\Pi:&\quad t_*=-\frac{\vec n\cdot\vec r_0+d}{\vec n\cdot\vec v}
+\quad(\vec n\cdot\vec v\ne0),\qquad P_*=\vec r_0+t_*\vec v,\\
+\Pi_1\cap\Pi_2:&\quad \vec v_L=\vec n_1\times\vec n_2
+\quad(\vec n_1\times\vec n_2\ne\vec0).
+\end{align*}
+Si $\vec n\cdot\vec v=0$, $L\subset\Pi$ cuando $\vec n\cdot\vec r_0+d=0$;
+si no, $L\cap\Pi=\varnothing$.
+
+\subsection*{Cilindros y cuádricas}
+En las formas siguientes, $a,b,c,R>0$. La variable ausente en una ecuación
+cilíndrica indica la dirección de sus generatrices.
+\begin{center}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{@{}p{6cm}p{\dimexpr\textwidth-6cm-2\tabcolsep\relax}@{}}
+\hline
+Superficie & Ecuación estándar\\\hline
+Cilindro circular (dirección $z$) & $x^2+y^2=R^2$\\
+Cilindro elíptico (dirección $z$) & $\displaystyle x^2/a^2+y^2/b^2=1$\\
+Cilindro parabólico (dirección $y$) & $z=x^2$\\
+Cilindro hiperbólico (dirección $z$) & $y^2-x^2=1$\\\hline
+Esfera & $x^2+y^2+z^2=R^2$\\
+Elipsoide & $\displaystyle x^2/a^2+y^2/b^2+z^2/c^2=1$\\
+Paraboloide elíptico & $\displaystyle z=x^2/a^2+y^2/b^2$\\
+Paraboloide hiperbólico & $\displaystyle z=y^2/b^2-x^2/a^2$\\
+Cono elíptico & $\displaystyle x^2/a^2+y^2/b^2=z^2/c^2$\\
+Hiperboloide de una hoja & $\displaystyle x^2/a^2+y^2/b^2-z^2/c^2=1$\\
+Hiperboloide de dos hojas & $\displaystyle z^2/c^2-x^2/a^2-y^2/b^2=1$\\\hline
+\end{tabular}
+\end{center}
+Traslación del centro o vértice a $(h,k,\ell)$:
+\[
+x\mapsto x-h,\qquad y\mapsto y-k,\qquad z\mapsto z-\ell.
+\]
+Las trazas se obtienen fijando $x=k$, $y=k$ o $z=k$.
+El intercambio de variables cambia el eje de la forma estándar.
+\endgroup

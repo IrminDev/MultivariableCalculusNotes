@@ -1,0 +1,153 @@
+\section{Formulario de la unidad 2}
+\begingroup
+\footnotesize
+\setlength{\parindent}{0pt}
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+\setlength{\abovedisplayshortskip}{3pt}
+\setlength{\belowdisplayshortskip}{3pt}
+
+\subsection*{Funciones vectoriales y cinemática}
+Para $\vec r(t)=(f_1(t),\ldots,f_n(t))$, las operaciones se realizan por componentes:
+\[
+\operatorname{Dom}(\vec r)=\bigcap_{i=1}^n\operatorname{Dom}(f_i),\qquad
+\lim_{t\to a}\vec r(t)=\left(\lim_{t\to a}f_i(t)\right)_{i=1}^n.
+\]
+\[
+\vec r\,'(t)=(f_1'(t),\ldots,f_n'(t)),\qquad
+\int_a^b\vec r(t)\,dt=\left(\int_a^b f_i(t)\,dt\right)_{i=1}^n.
+\]
+\[
+\vec v=\vec r\,',\qquad v=\|\vec r\,'\|,\qquad
+\vec a=\vec r\,'',\qquad
+\vec r(t)=\vec r(t_0)+\int_{t_0}^t\vec v(u)\,du.
+\]
+Longitud de arco y triedro de Frenet, con $\vec r\,'\ne\vec0$:
+\[
+L=\int_a^b\|\vec r\,'(t)\|\,dt,\qquad
+s(t)=\int_a^t\|\vec r\,'(u)\|\,du,\qquad
+\hat T=\frac{\vec r\,'}{\|\vec r\,'\|}.
+\]
+\[
+\kappa=\left\|\frac{d\hat T}{ds}\right\|
+=\frac{\|\hat T'\|}{\|\vec r\,'\|}
+=\frac{\|\vec r\,'\times\vec r\,''\|}{\|\vec r\,'\|^3},\qquad
+\hat N=\frac{\hat T'}{\|\hat T'\|},\qquad \hat B=\hat T\times\hat N.
+\]
+$\hat N$ y $\hat B$ requieren $\kappa>0$.
+\[
+\vec a=a_T\hat T+a_N\hat N,\qquad
+a_T=\frac{\vec r\,'\cdot\vec r\,''}{\|\vec r\,'\|}=\frac{dv}{dt},\qquad
+a_N=\frac{\|\vec r\,'\times\vec r\,''\|}{\|\vec r\,'\|}=\kappa v^2.
+\]
+
+\subsection*{Funciones escalares, niveles y límites}
+Para $f:D\subseteq\mathbb R^n\to\mathbb R$:
+\[
+\operatorname{Im}(f)=\{f(\mathbf x):\mathbf x\in D\},\qquad
+\text{nivel }c:\ f(\mathbf x)=c,\qquad
+\operatorname{Graf}(f)=\{(x,y,f(x,y)):(x,y)\in D\}.
+\]
+Dominio: denominador no nulo; radicando de raíz par no negativo;
+argumento de logaritmo positivo.
+
+\[
+f\text{ continua en }\mathbf a\ \Longleftrightarrow\
+\lim_{\mathbf x\to\mathbf a}f(\mathbf x)=f(\mathbf a).
+\]
+Cota polar para un límite en $(a,b)$:
+\[
+x=a+\rho\cos\theta,\quad y=b+\rho\sin\theta,\qquad
+|f(a+\rho\cos\theta,b+\rho\sin\theta)-L|\leq M(\rho)\longrightarrow0.
+\]
+La cota debe valer para todo $\theta$ admisible. Dos trayectorias con límites
+ distintos prueban que el límite no existe.
+
+\subsection*{Derivadas parciales y regla de la cadena}
+En un punto interior del dominio, si los límites existen:
+\[
+f_x(a,b)=\lim_{h\to0}\frac{f(a+h,b)-f(a,b)}h,\qquad
+f_y(a,b)=\lim_{h\to0}\frac{f(a,b+h)-f(a,b)}h.
+\]
+\[
+f_{xy}=\frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right),\qquad
+f_{yx}=\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial y}\right),\qquad
+f\in C^2\ \Longrightarrow\ f_{xy}=f_{yx}.
+\]
+Para $f$ diferenciable y funciones interiores de clase $C^1$:
+\begin{align*}
+z=f(x(t),y(t)):&\qquad \frac{dz}{dt}=f_x\frac{dx}{dt}+f_y\frac{dy}{dt},\\
+z=f(x(s,t),y(s,t)):&\qquad z_s=f_xx_s+f_yy_s,\qquad z_t=f_xx_t+f_yy_t,\\
+w=f(x_1(\mathbf t),\ldots,x_m(\mathbf t)):&\qquad
+\frac{\partial w}{\partial t_k}=\sum_{i=1}^m\frac{\partial f}{\partial x_i}\frac{\partial x_i}{\partial t_k}.
+\end{align*}
+Derivación implícita, cuando la ecuación define la función diferenciable indicada:
+\begin{align*}
+F(x,y(x))=0:&\quad y'=-\frac{F_x}{F_y}\quad(F_y\ne0),\\
+F(x,y,z(x,y))=0:&\quad z_x=-\frac{F_x}{F_z},\quad z_y=-\frac{F_y}{F_z}\quad(F_z\ne0).
+\end{align*}
+
+\subsection*{Plano tangente, linealización y diferencial}
+Para $f$ diferenciable en $(a,b)$, con $z_0=f(a,b)$:
+\[
+z-z_0=f_x(a,b)(x-a)+f_y(a,b)(y-b).
+\]
+\[
+L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b),\qquad f(x,y)\approx L(x,y).
+\]
+\[
+dz=f_x\,dx+f_y\,dy,\qquad \Delta z\approx dz,\qquad
+df=\sum_{i=1}^n\frac{\partial f}{\partial x_i}\,dx_i.
+\]
+
+\subsection*{Gradiente y derivada direccional}
+Para $f$ diferenciable y $\|\mathbf u\|=1$:
+\[
+\nabla f=\left\langle\frac{\partial f}{\partial x_1},\ldots,
+\frac{\partial f}{\partial x_n}\right\rangle,\qquad
+D_{\mathbf u}f(\mathbf a)=\lim_{h\to0}\frac{f(\mathbf a+h\mathbf u)-f(\mathbf a)}h
+=\nabla f(\mathbf a)\cdot\mathbf u.
+\]
+\[
+\mathbf u=\frac{\mathbf v}{\|\mathbf v\|}\ (\mathbf v\ne\mathbf0),\qquad
+\max_{\|\mathbf u\|=1}D_{\mathbf u}f=\|\nabla f\|,\qquad
+\min_{\|\mathbf u\|=1}D_{\mathbf u}f=-\|\nabla f\|.
+\]
+Si $\nabla f\ne\mathbf0$, las direcciones extremas son
+$\mathbf u_{\max}=\nabla f/\|\nabla f\|$ y
+$\mathbf u_{\min}=-\nabla f/\|\nabla f\|$.
+El gradiente es normal al nivel regular $f=c$.
+
+\subsection*{Máximos, mínimos y multiplicadores de Lagrange}
+Candidatos interiores: $\nabla f=\mathbf0$ y puntos donde alguna parcial no existe.
+Para $f\in C^2$ cerca del punto crítico $(a,b)$:
+\[
+D=f_{xx}(a,b)f_{yy}(a,b)-[f_{xy}(a,b)]^2.
+\]
+\[
+\begin{array}{c|c}
+\text{Condición}&\text{Clasificación}\\\hline
+D>0,\ f_{xx}(a,b)>0&\text{Mínimo local}\\
+D>0,\ f_{xx}(a,b)<0&\text{Máximo local}\\
+D<0&\text{Punto de silla}\\
+D=0&\text{Criterio no concluyente}
+\end{array}
+\]
+Para $f$ continua en una región no vacía, cerrada y acotada, los extremos
+absolutos se obtienen comparando candidatos interiores y valores extremos
+sobre toda la frontera, incluidos vértices y extremos de los arcos.
+
+Para $f,g,h\in C^1$, los candidatos regulares con restricciones satisfacen
+\[
+\text{Una restricción:}\quad
+\begin{cases}\nabla f=\lambda\nabla g,\\g=k,\end{cases}
+\qquad \nabla g\ne\mathbf0.
+\]
+\[
+\text{Dos restricciones:}\quad
+\begin{cases}\nabla f=\lambda\nabla g+\mu\nabla h,\\g=k,\\h=m,\end{cases}
+\qquad \nabla g,\nabla h\text{ linealmente independientes}.
+\]
+Se comparan los valores de $f$ en los candidatos; los puntos donde falla la
+regularidad de las restricciones se analizan por separado.
+\endgroup
