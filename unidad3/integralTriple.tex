@@ -112,22 +112,6 @@ La caja tiene volumen $2$, pero esta integral vale $8$ porque el integrando no e
 
 \subsection{La integral triple sobre una región general}
 
-\begin{mydefinition}{Integral triple sobre un sólido acotado}
-Sea $E\subset\mathbb R^3$ un sólido acotado, contenido en una caja $B$, y sea $f:E\to\mathbb R$ acotada. Se extiende $f$ a $B$ por
-\[
-\widetilde f(x,y,z)=
-\begin{cases}
-f(x,y,z),&(x,y,z)\in E,\\
-0,&(x,y,z)\in B\setminus E.
-\end{cases}
-\]
-Si $\widetilde f$ es integrable en $B$, se define
-\[
-\iiint_E f\,dV=\iiint_B\widetilde f\,dV.
-\]
-La definición no depende de la caja que contiene a $E$.
-\end{mydefinition}
-
 En este tema se consideran sólidos cerrados y acotados con fronteras formadas por un número finito de superficies suaves por partes, y funciones continuas sobre ellos. Estas condiciones garantizan la integrabilidad: las cajas que cortan la frontera pueden cubrirse con volumen total tan pequeño como se desee. La extensión por cero puede ser discontinua en la frontera, pero esas discontinuidades no impiden que exista la integral.
 
 Se conservan la linealidad y la aditividad respecto de la región. Si $E$ se divide en sólidos $E_1$ y $E_2$ cuyos interiores no se superponen y que solo comparten superficies de frontera, entonces
